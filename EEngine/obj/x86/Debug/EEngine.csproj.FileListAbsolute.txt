@@ -1,0 +1,6 @@
+E:\Git\EEngine\EEngine\EEngine\bin\x86\Debug\EEngine.exe.config
+E:\Git\EEngine\EEngine\EEngine\bin\x86\Debug\EEngine.exe
+E:\Git\EEngine\EEngine\EEngine\bin\x86\Debug\EEngine.pdb
+E:\Git\EEngine\EEngine\EEngine\obj\x86\Debug\EEngine.csprojAssemblyReference.cache
+E:\Git\EEngine\EEngine\EEngine\obj\x86\Debug\EEngine.exe
+E:\Git\EEngine\EEngine\EEngine\obj\x86\Debug\EEngine.pdb

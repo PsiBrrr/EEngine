@@ -1,0 +1,22 @@
+<Effects>
+	<Effect><Position>32,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
+	<Effect><Position>40,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
+	<Effect><Position>48,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
+	<Effect><Position>56,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
+	<Effect><Position>64,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
+	<Effect><Position>72,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
+	<Effect><Position>80,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
+	<Effect><Position>88,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
+	<Effect><Position>96,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
+	<Effect><Position>0,	0</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
+	<Effect><Position>104,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
+	
+	<Effect><Position>0,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>2</Group></Effect>
+	<Effect><Position>24,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>2</Group></Effect>
+	<Effect><Position>48,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>2</Group></Effect>
+	<Effect><Position>72,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>2</Group></Effect>
+	<Effect><Position>96,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>2</Group></Effect>
+	<Effect><Position>120,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>2</Group></Effect>
+	<Effect><Position>144,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>2</Group></Effect>
+	<Effect><Position>168,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>2</Group></Effect>
+</Effects>

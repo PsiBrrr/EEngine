@@ -1,0 +1,87 @@
+<Tiles>
+	<Tile><Position>0,	0</Position>	<Size>16,16</Size>	<Tag>GrassLand</Tag>					<GroupTag>GrassLand</GroupTag>						<ShortTag>gl</ShortTag>		<ImageFlip>false</ImageFlip>	<Group>1</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>352,0</Position>	<Size>16,16</Size>	<Tag>GrassLand</Tag>					<GroupTag>GrassLand_Fog</GroupTag>					<ShortTag>gl</ShortTag>		<ImageFlip>false</ImageFlip>	<Group>1</Group>	<SubGroup>2</SubGroup></Tile>
+									
+	<Tile><Position>16, 0</Position>	<Size>16, 16</Size>	<Tag>TreesRight</Tag>					<GroupTag>TreesRight</GroupTag>						<ShortTag>tr</ShortTag>		<ImageFlip>false</ImageFlip>	<Group>2</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>368,0</Position>	<Size>16, 16</Size>	<Tag>TreesRight</Tag>					<GroupTag>TreesRight_Fog</GroupTag>					<ShortTag>tr</ShortTag>		<ImageFlip>false</ImageFlip>	<Group>2</Group>	<SubGroup>2</SubGroup></Tile>
+									
+	<Tile><Position>32, 0</Position>	<Size>16, 16</Size>	<Tag>TreesBoth</Tag>					<GroupTag>TreesBoth</GroupTag>						<ShortTag>tb</ShortTag>		<ImageFlip>false</ImageFlip>	<Group>3</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>384,0</Position>	<Size>16, 16</Size>	<Tag>TreesBoth</Tag>					<GroupTag>TreesBoth_Fog</GroupTag>					<ShortTag>tb</ShortTag>		<ImageFlip>false</ImageFlip>	<Group>3</Group>	<SubGroup>2</SubGroup></Tile>
+									
+	<Tile><Position>48, 0</Position>	<Size>16, 16</Size>	<Tag>GrassLandShadow</Tag>				<GroupTag>GrassLandShadow</GroupTag>				<ShortTag>gls</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>4</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>400,0</Position>	<Size>16, 16</Size>	<Tag>GrassLandShadow</Tag>				<GroupTag>GrassLandShadow_Fog</GroupTag>			<ShortTag>gls</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>4</Group>	<SubGroup>2</SubGroup></Tile>
+	
+	<Tile><Position>64, 0</Position>	<Size>16, 16</Size>	<Tag>Hill</Tag>							<GroupTag>Hill</GroupTag>							<ShortTag>h</ShortTag>		<ImageFlip>false</ImageFlip>	<Group>5</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>416,0</Position>	<Size>16, 16</Size>	<Tag>Hill</Tag>							<GroupTag>Hill_Fog</GroupTag>						<ShortTag>h</ShortTag>		<ImageFlip>false</ImageFlip>	<Group>5</Group>	<SubGroup>2</SubGroup></Tile>	
+	
+	
+	
+	
+	<Tile><Position>0, 80</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner</GroupTag>		<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 144</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner</GroupTag>		<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 208</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner</GroupTag>		<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 272</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner</GroupTag>		<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 272</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner</GroupTag>		<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 208</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner</GroupTag>		<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 144</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner</GroupTag>		<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 80</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner</GroupTag>		<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>352,80</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner_Fog</GroupTag>	<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,144</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner_Fog</GroupTag>	<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,208</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner_Fog</GroupTag>	<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,272</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner_Fog</GroupTag>	<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,272</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner_Fog</GroupTag>	<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,208</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner_Fog</GroupTag>	<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,144</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner_Fog</GroupTag>	<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,80</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeftUpperCorner</Tag>	<GroupTag>OceanCliffLeftUpperCorner_Fog</GroupTag>	<ShortTag>ocluc</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>6</Group>	<SubGroup>2</SubGroup></Tile>
+	
+	<Tile><Position>16, 80</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp</GroupTag>					<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 144</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp</GroupTag>					<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 208</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp</GroupTag>					<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 272</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp</GroupTag>					<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 272</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp</GroupTag>					<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 208</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp</GroupTag>					<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 144</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp</GroupTag>					<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 80</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp</GroupTag>					<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>368,80</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp_Fog</GroupTag>				<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,144</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp_Fog</GroupTag>				<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,208</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp_Fog</GroupTag>				<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,272</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp_Fog</GroupTag>				<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,272</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp_Fog</GroupTag>				<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,208</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp_Fog</GroupTag>				<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,144</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp_Fog</GroupTag>				<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,80</Position>	<Size>16, 16</Size>	<Tag>OceanCliffUp</Tag>					<GroupTag>OceanCliffUp_Fog</GroupTag>				<ShortTag>ocu</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>7</Group>	<SubGroup>2</SubGroup></Tile>
+	
+	<Tile><Position>0, 96</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft</GroupTag>					<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 160</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft</GroupTag>					<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 224</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft</GroupTag>					<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 288</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft</GroupTag>					<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 288</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft</GroupTag>					<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 224</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft</GroupTag>					<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 160</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft</GroupTag>					<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>0, 96</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft</GroupTag>					<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>352,96</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft_Fog</GroupTag>				<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,160</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft_Fog</GroupTag>				<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,224</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft_Fog</GroupTag>				<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,288</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft_Fog</GroupTag>				<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,288</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft_Fog</GroupTag>				<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,224</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft_Fog</GroupTag>				<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,160</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft_Fog</GroupTag>				<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>352,96</Position>	<Size>16, 16</Size>	<Tag>OceanCliffLeft</Tag>				<GroupTag>OceanCliffLeft_Fog</GroupTag>				<ShortTag>ocl</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>8</Group>	<SubGroup>2</SubGroup></Tile>
+	
+	<Tile><Position>16, 96</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean</GroupTag>					<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 160</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean</GroupTag>					<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 224</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean</GroupTag>					<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 288</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean</GroupTag>					<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 288</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean</GroupTag>					<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 224</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean</GroupTag>					<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 160</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean</GroupTag>					<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>16, 96</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean</GroupTag>					<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>1</SubGroup></Tile>
+	<Tile><Position>368,96</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean_Fog</GroupTag>				<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,160</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean_Fog</GroupTag>				<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,224</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean_Fog</GroupTag>				<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,288</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean_Fog</GroupTag>				<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,288</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean_Fog</GroupTag>				<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,224</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean_Fog</GroupTag>				<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,160</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean_Fog</GroupTag>				<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>2</SubGroup></Tile>
+	<Tile><Position>368,96</Position>	<Size>16, 16</Size>	<Tag>Ocean</Tag>						<GroupTag>Ocean_Fog</GroupTag>				<ShortTag>o</ShortTag>	<ImageFlip>false</ImageFlip>	<Group>9</Group>	<SubGroup>2</SubGroup></Tile>
+</Tiles>
