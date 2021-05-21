@@ -241,21 +241,30 @@ namespace EEngine.EEngine
         //}
         public static void SetLevelTileFog(Vector2 Level_Array_Position, int Vision)
         {
-            Level_Array_Position.X -= Vision - 1;
-            int VisionSize = ((Vision * 2) - 1);
+            Level_Array_Position.X -= Vision - 1; //Start Position along X axis
+            int VisionSize = ((Vision * 2) - 1); //Vision Width
 
             for (int i = 0; i < Vision; i++)
             {
                 for (int j = (i * -1); j <= i; j++)
                 {
-                    if (!((int)Level_Array_Position.Y + j).IsBetween(0, (Levels.Count - 1))
-                        || !((int)Level_Array_Position.X + i).IsBetween(0, (Levels[(int)Level_Array_Position.Y + j].Count - 1)))
-                    { continue; }
-                    Levels[(int)Level_Array_Position.Y + j][(int)Level_Array_Position.X + i].Level_Tile.Normal();
+                    //if (!((int)Level_Array_Position.Y + j).IsBetween(0, (Levels.Count - 1))
+                    //    || !((int)Level_Array_Position.X + i).IsBetween(0, (Levels[(int)Level_Array_Position.Y + j].Count - 1)))
+                    //{ continue; }
+                    //Levels[(int)Level_Array_Position.Y + j][(int)Level_Array_Position.X + i].Level_Tile.Normal();
 
-                    if (!((int)Level_Array_Position.X + ((VisionSize - 1) - i)).IsBetween(0, (Levels[(int)Level_Array_Position.Y + j].Count - 1)))
-                    { continue; }
-                    Levels[(int)Level_Array_Position.Y + j][(int)Level_Array_Position.X + ((VisionSize - 1) - i)].Level_Tile.Normal();
+                    if (((int)Level_Array_Position.Y + j).IsBetween(0, (Levels.Count - 1))
+                        && ((int)Level_Array_Position.X + i).IsBetween(0, (Levels[(int)Level_Array_Position.Y + j].Count - 1)))
+                    { Levels[(int)Level_Array_Position.Y + j][(int)Level_Array_Position.X + i].Level_Tile.Normal(); }
+
+                    //if (!((int)Level_Array_Position.X + ((VisionSize - 1) - i)).IsBetween(0, (Levels[(int)Level_Array_Position.Y + j].Count - 1)))
+                    //{ continue; }
+                    //Levels[(int)Level_Array_Position.Y + j][(int)Level_Array_Position.X + ((VisionSize - 1) - i)].Level_Tile.Normal();
+
+                    if (((int)Level_Array_Position.Y + j).IsBetween(0, (Levels.Count - 1))
+                        && ((int)Level_Array_Position.X + ((VisionSize - 1) - i)).IsBetween(0, (Levels[(int)Level_Array_Position.Y + j].Count - 1)))
+                    { Levels[(int)Level_Array_Position.Y + j][(int)Level_Array_Position.X + ((VisionSize - 1) - i)].Level_Tile.Normal(); }
+
                 }
             }
 

@@ -105,7 +105,7 @@ namespace EEngine
             }
             if(num2 && i == 0)
             {
-                SetLevelTileFog(new Vector2(3, 3), 3);
+                SetLevelTileFog(new Vector2(6, 7), 3);
                 i++;
             }
             if(tab && i == 0)
@@ -120,14 +120,13 @@ namespace EEngine
         float speed = 2f;
         public override void OnUpdate()
         {
-            //GetArmyUnit(0).Unit.Idle();
+            GetArmyUnit(0).Unit.Idle();
             if (up)
             {
                 GetArmyUnit(0).Unit.Up();
                 GetArmyUnit(0).Position.Y -= speed;
                 //Log.Normal(playerRun.Position);
             }
-
 
             if (down)
             {
