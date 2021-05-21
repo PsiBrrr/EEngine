@@ -74,6 +74,7 @@
     <Compile Include="EEngine\AnimatedSprite2D.cs" />
     <Compile Include="EEngine\Armies.cs" />
     <Compile Include="EEngine\Between.cs" />
+    <Compile Include="EEngine\Buildings.cs" />
     <Compile Include="EEngine\EEngine.cs">
       <SubType>Form</SubType>
     </Compile>

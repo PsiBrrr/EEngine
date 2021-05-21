@@ -29,6 +29,7 @@ namespace EEngine.EEngine
         private static List<Units> AllUnits = new List<Units>();
         private static List<Armies> Armies = new List<Armies>();
         private static List<Tiles> AllTiles = new List<Tiles>();
+        private static List<Buildings> AllBuildings = new List<Buildings>();
         private static List<List<Level>> Levels = new List<List<Level>>();
         private static List<Effects> AllEffects = new List<Effects>();
 
@@ -154,6 +155,14 @@ namespace EEngine.EEngine
             Log.Normal("Unit Removed");
         }*/
 
+        public static void RegisterBuilding(Buildings Building)
+        {
+            AllBuildings.Add(Building);
+        }
+        public static void UnRegisterBuilding(Buildings Building)
+        {
+            AllBuildings.Remove(Building);
+        }
 
         public static void RegisterTile(Tiles Tile)
         {

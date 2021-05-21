@@ -105,7 +105,7 @@ namespace EEngine
             }
             if(num2 && i == 0)
             {
-                SetLevelTileFog(new Vector2(6, 7), 3);
+                SetLevelTileFog(new Vector2(3, 3), 3);
                 i++;
             }
             if(tab && i == 0)
