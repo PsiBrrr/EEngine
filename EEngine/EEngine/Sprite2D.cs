@@ -110,6 +110,7 @@ namespace EEngine.EEngine
         {
             try
             {
+                this.Scale = new Vector2(Section.Width, Section.Height);
                 this.Image = Image;
                 this.Tag = Tag;
 
@@ -153,6 +154,7 @@ namespace EEngine.EEngine
         {
             try
             {
+                this.Scale = new Vector2(Section.Width, Section.Height);
                 this.Image = Image;
                 this.Tag = Tag;
 

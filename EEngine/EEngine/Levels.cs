@@ -7,14 +7,14 @@ using System.Xml;
 
 namespace EEngine.EEngine
 {
-    public class Level
+    public class Levels
     {
         public Vector2 Level_Position = Vector2.Zero();
         public Vector2 Level_Scale = Vector2.Zero();
         public Tiles Level_Tile = null;
         public Vector2 Level_Array_Position { get; private set; } = Vector2.Zero();
 
-        public Level(Vector2 Level_Position, Vector2 Level_Scale, Tiles Level_Tile, Vector2 Level_Array_Position)
+        public Levels(Vector2 Level_Position, Vector2 Level_Scale, Tiles Level_Tile, Vector2 Level_Array_Position)
         {
             this.Level_Position = Level_Position;
             this.Level_Scale = Level_Scale;
@@ -25,28 +25,48 @@ namespace EEngine.EEngine
             EEngine.RegisterLevel(this);
         }
 
-        public Level(Vector2 Scale, string[,] MapArray)
+        public Levels(Vector2 Tile_Scale, string[,] MapArray)
         {
             Vector2 StartPosition = Vector2.Zero();
-            for (int x = 0; x < MapArray.GetLength(1); x++) { StartPosition.X += Scale.X / 2; }
-            for (int y = 0; y < MapArray.GetLength(0); y++) { StartPosition.Y += Scale.Y / 2; }
+            for (int x = 0; x < MapArray.GetLength(1); x++) { StartPosition.X += Tile_Scale.X / 2; }
+            for (int y = 0; y < MapArray.GetLength(0); y++) { StartPosition.Y += Tile_Scale.Y / 2; }
 
             StartPosition.X = EEngine.GetScreenCenter().X - StartPosition.X - 10;
             StartPosition.Y = EEngine.GetScreenCenter().Y - StartPosition.Y - 20;
 
-            EEngine.InitializeLevel(MapArray.GetLength(0));
+            EEngine.InitializeLevelArry(MapArray.GetLength(0));
             for (int i = 0; i < MapArray.GetLength(0); i++)
             {
                 for (int j = 0; j < MapArray.GetLength(1); j++)
                 {
-                    new Level(new Vector2(j * Scale.X + StartPosition.X, i * Scale.Y + StartPosition.Y), Scale, EEngine.GetTile(MapArray[i,j]), new Vector2(j, i));
+                    new Levels(new Vector2(j * Tile_Scale.X + StartPosition.X, i * Tile_Scale.Y + StartPosition.Y), Tile_Scale, EEngine.GetTile(MapArray[i,j]), new Vector2(j, i));
+                }
+            }
+            EEngine.Loaded();
+        }
+        public Levels(float Scale, Vector2 Tile_Scale, string[,] MapArray)
+        {
+            Vector2 StartPosition = Vector2.Zero();
+            Vector2 Tile_Scale_2 = Tile_Scale * Scale;
+            for (int x = 0; x < MapArray.GetLength(1); x++) { StartPosition.X += Tile_Scale_2.X / 2; }
+            for (int y = 0; y < MapArray.GetLength(0); y++) { StartPosition.Y += Tile_Scale_2.Y / 2; }
+
+            StartPosition.X = EEngine.GetScreenCenter().X - StartPosition.X - 10;
+            StartPosition.Y = EEngine.GetScreenCenter().Y - StartPosition.Y - 20;
+
+            EEngine.InitializeLevelArry(MapArray.GetLength(0));
+            for (int i = 0; i < MapArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < MapArray.GetLength(1); j++)
+                {
+                    new Levels(new Vector2(j * Tile_Scale_2.X + StartPosition.X, i * Tile_Scale_2.Y + StartPosition.Y), Tile_Scale_2, EEngine.GetTile(MapArray[i, j]), new Vector2(j, i));
                 }
             }
             EEngine.Loaded();
         }
 
 
-        public Level(XmlDocument Doc)
+        public Levels(XmlDocument Doc)
         {
             XmlNodeList XmlNode;
 

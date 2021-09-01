@@ -48,6 +48,10 @@ namespace EEngine.EEngine
         {
             return new Vector2(A.X + B.X, A.Y + B.Y);
         }
+        public static Vector2 operator +(Vector2 A, decimal B)
+        {
+            return new Vector2(A.X + ((float)B), A.Y + ((float)B));
+        }
         public static Vector2 operator -(Vector2 A, Vector2 B)
         {
             return new Vector2(A.X - B.X, A.Y - B.Y);
@@ -57,6 +61,14 @@ namespace EEngine.EEngine
             return new Vector2(A.X * B.X, A.Y * B.Y);
         }
         public static Vector2 operator *(Vector2 A, int B)
+        {
+            return new Vector2(A.X * B, A.Y * B);
+        }
+        public static Vector2 operator *(Vector2 A, decimal B)
+        {
+            return new Vector2(A.X * ((float)B), A.Y * ((float)B));
+        }
+        public static Vector2 operator *(Vector2 A, float B)
         {
             return new Vector2(A.X * B, A.Y * B);
         }

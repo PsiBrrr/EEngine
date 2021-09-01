@@ -16,6 +16,7 @@ namespace EEngine
         Image tileSpriteSheet;
         Image playerSpriteSheet;
         Image effectSpriteSheet;
+        float Scale = 4f;
 
         bool left;
         bool right;
@@ -78,16 +79,17 @@ namespace EEngine
             new Tiles(tileSpriteSheet, tileDoc);
             new Units(playerSpriteSheet, unitDoc);
             new Effects(effectSpriteSheet, effectDoc);
-            new Level(new Vector2(32, 32), Map);
 
-            CreateArmyUnit(new Vector2(300, 200), new Vector2(48, 48), 0, new Vector2(0, 0));
-            CreateArmyUnit(new Vector2(332, 200), new Vector2(48, 48), 1, new Vector2(0, 0));
-            CreateArmyUnit(new Vector2(364, 200), new Vector2(48, 48), 2, new Vector2(0, 0));
-            CreateArmyUnit(new Vector2(396, 200), new Vector2(48, 48), 3, new Vector2(0, 0));
+            CreateLevel(Scale, Map);
+            SetLevelTileFog();
 
-            GetArmyUnit(0).Unit.Health = 49;
-            GetArmyUnit(1).Unit.Health = 4;
-            GetArmyUnit(3).Unit.Health = 98;
+            //CreateArmyUnit(new Vector2(300, 200), new Vector2(48, 48), 1, new Vector2(0, 0)); //Manual scale set of army unit
+            CreateArmyUnit(new Vector2(300, 200), Scale, 0, new Vector2(0, 0));
+            CreateArmyUnit(new Vector2(400, 200), Scale, 1, new Vector2(0, 0));
+            CreateArmyUnit(new Vector2(500, 200), Scale, 2, new Vector2(0, 0));
+            CreateArmyUnit(new Vector2(600, 200), Scale, 3, new Vector2(0, 0));
+
+            GetArmyUnit(0).Unit.SetUnitHealth(49);
         }
 
         int i = 0;
@@ -105,7 +107,11 @@ namespace EEngine
             }
             if(num2 && i == 0)
             {
+<<<<<<< Updated upstream
                 SetLevelTileFog(new Vector2(6, 7), 3);
+=======
+                SetLevelTileFogVision(new Vector2(3, 3), 3);
+>>>>>>> Stashed changes
                 i++;
             }
             if(tab && i == 0)
@@ -117,7 +123,7 @@ namespace EEngine
 
         }
 
-        float speed = 2f;
+        float speed = 3f;
         public override void OnUpdate()
         {
             GetArmyUnit(0).Unit.Idle();
@@ -191,7 +197,13 @@ namespace EEngine
 
         public override void GetMouseDown(MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left) { Log.Normal($"Mouse Left Down at {e.Location}"); }
+            if(e.Button == MouseButtons.Left)
+            {
+                Log.Normal($"Mouse Left Down at {e.Location}");
+                Log.Warning(GetLevelTileTag(new Vector2(e.Location.X, e.Location.Y)));
+                Log.Normal(GetLevelTilePosition(new Vector2(e.Location.X, e.Location.Y)));
+                Log.Warning(GetArmyUnitTag(new Vector2(e.Location.X, e.Location.Y)));
+            }
         }
         public override void GetMouseUp(MouseEventArgs e)
         {

@@ -16,10 +16,10 @@ namespace EEngine.EEngine
         private enum Animations { Normal, Normal_Fog, Rain, Rain_Fog, Snow, Snow_Fog };
         public int AnimationSet { get; private set; } = (int)Animations.Normal_Fog;
 
-        public Tiles(Vector2 Tile_Scale, List<AnimatedSprite2D> Tile, string Tag, string ShortTag, bool Register)
+        public Tiles(Vector2 Tile_Scale, List<AnimatedSprite2D> Tile_Sprite, string Tag, string ShortTag, bool Register)
         {
             this.Tile_Scale = Tile_Scale;
-            this.Tile_Sprite = Tile;
+            this.Tile_Sprite = Tile_Sprite;
             this.Tag = Tag;
             this.ShortTag = ShortTag;
 
@@ -73,6 +73,7 @@ namespace EEngine.EEngine
                 Sprites = new List<Sprite2D>();
             }
 
+            this.Tile_Scale = Tile_Sprite[0].Scale; //Tile_Sprite[0].Scale should be the same across all tiles
             this.Tag = Tag;
             this.ShortTag = ShortTag;
 

@@ -7,18 +7,27 @@ namespace EEngine.EEngine
 {
     public class Units
     {
-        public Vector2 Unit_Position = Vector2.Zero();
-        public Vector2 Unit_Scale = Vector2.Zero();
+        public Vector2 Position = Vector2.Zero();
+        public Vector2 vScale = Vector2.Zero();
+        private float fScale = 1f;
         public List<AnimatedSprite2D> Unit_Sprite = new List<AnimatedSprite2D>();
         public Effects Health_Effect = null;
+        public Effects Supply_Effect = null;
         public int Unit_Frame = 0;
+
+
+        private readonly float SpriteTopBuffer = 8f;
+        private readonly float SpriteLeftBuffer = 4f;
+        private readonly float SpriteRightBuffer = 4f;
+        private readonly float SpriteBottomBuffer = 0f;
+
 
         public int Ammo = 0;
         public int Cost = 0;
-        public int Fuel = 0;
-        private readonly int MaxHealth = 99;
-        private readonly int MinHealth = 0;
-        public int Health = 0;
+        private float MaxFuel = 0f;
+        private float Fuel = 5;
+        private readonly int MaxHealth = 100;
+        private int Health = 100;
         public int Movement = 0;
         public int Vision = 0;
 
@@ -29,19 +38,26 @@ namespace EEngine.EEngine
         public int AnimationSet { get; private set; } = (int)Animations.Idle_Left;
 
 
-        public Units(Vector2 Unit_Position, Vector2 Unit_Scale, List<AnimatedSprite2D> Unit, Effects HealthEffect, string Tag, string ShortTag, bool Register)
+        public Units(Vector2 Position, Vector2 vScale, List<AnimatedSprite2D> Unit_Sprite, Effects HealthEffect, Effects SupplyEffect, string Tag, string ShortTag, bool Register)
         {
-            this.Unit_Position = Unit_Position;
-            this.Unit_Scale = Unit_Scale;
-            this.Unit_Sprite = Unit;
+            this.Position = Position;
+            //this.Bounding_Position = CalculateUnitBoundingPosition(Position, Scale);
+            this.vScale = vScale;
+            this.Unit_Sprite = Unit_Sprite;
             this.Tag = Tag;
             this.ShortTag = ShortTag;
 
-            this.Health_Effect = new Effects(GetUnitHealthEffect(Unit_Position),
-                HealthEffect.Scale * 2,
+            this.Health_Effect = new Effects(GetUnitHealthEffect(Position),
+                HealthEffect.Scale * fScale,
                 HealthEffect.EffectElement,
                 HealthEffect.Tag,
                 HealthEffect.ShortTag,
+                false);
+            this.Supply_Effect = new Effects(GetUnitSupplyEffect(Position),
+                SupplyEffect.Scale * fScale,
+                SupplyEffect.EffectElement,
+                SupplyEffect.Tag,
+                SupplyEffect.ShortTag,
                 false);
 
             if (Register)
@@ -50,6 +66,36 @@ namespace EEngine.EEngine
                 Log.Info($"[UNITS]({Tag}) - Has been registered!");
             }
         }
+        public Units(Vector2 Position, float fScale, List<AnimatedSprite2D> Unit_Sprite, Effects HealthEffect, Effects SupplyEffect, string Tag, string ShortTag, bool Register)
+        {
+            this.Position = Position;
+            this.fScale = fScale;
+            this.vScale = Unit_Sprite[0].Scale * this.fScale;
+            this.Unit_Sprite = Unit_Sprite;
+            this.Tag = Tag;
+            this.ShortTag = ShortTag;
+
+            this.Health_Effect = new Effects(GetUnitHealthEffect(Position),
+                HealthEffect.Scale * fScale,
+                HealthEffect.EffectElement,
+                HealthEffect.Tag,
+                HealthEffect.ShortTag,
+                false);
+            this.Supply_Effect = new Effects(GetUnitSupplyEffect(Position),
+                SupplyEffect.Scale * fScale,
+                SupplyEffect.EffectElement,
+                SupplyEffect.Tag,
+                SupplyEffect.ShortTag,
+                false);
+
+            if (Register)
+            {
+                EEngine.RegisterUnit(this);
+                Log.Info($"[UNITS]({Tag}) - Has been registered!");
+            }
+        }
+
+
         /// <summary>
         /// Create a new Unit from a AnimatedSprite2Ds 
         /// </summary>
@@ -75,7 +121,7 @@ namespace EEngine.EEngine
             EEngine.RegisterUnit(this);
             Log.Info($"[UNITS]({Tag}) - Has been registered!");
         }
-        /// Create a new Unit from multiple AnimatedSprite2Ds
+        /// Create a new Unit from multiple AnimatedSprite2Ds, use this when you have animations for multiple directions
         /// </summary>
         /// <param name="Section">List of a List of Rectangles. Each inner list is used to create an AnimatedSprite2D from multiple Sprite2Ds</param>
         /// <param name="Image">Sprite Sheet</param>
@@ -106,7 +152,7 @@ namespace EEngine.EEngine
         }
         public Units(Image Image, XmlDocument Doc)
         {
-            XmlNodeList XmlNode;
+            XmlNodeList Node;
             List<Rectangle> Sections = new List<Rectangle>();
             List<string> Tags = new List<string>();
 
@@ -116,51 +162,54 @@ namespace EEngine.EEngine
 
             int j = 0;
 
-            XmlNode = Doc.GetElementsByTagName("Unit");
-
-            for (int i = 0; i <= XmlNode.Count - 1; i++)
+            Node = Doc.GetElementsByTagName("Units");
+            
+            foreach(XmlNode node in Node)
             {
                 try
                 {
-                    string[] StrPoint = XmlNode[i].ChildNodes.Item(0).InnerText.Trim().Replace("\t", "").Split(',');
-                    string[] StrSize = XmlNode[i].ChildNodes.Item(1).InnerText.Trim().Replace("\t", "").Split(',');
-                    string Tag = XmlNode[i].ChildNodes.Item(2).InnerText.Trim();
-                    string ShortTag = XmlNode[i].ChildNodes.Item(3).InnerText.Trim();
-                    bool Flip = bool.Parse(XmlNode[i].ChildNodes.Item(4).InnerText.Trim());
-                    int Group = int.Parse(XmlNode[i].ChildNodes.Item(5).InnerText.Trim());
-                    int SubGroup = int.Parse(XmlNode[i].ChildNodes.Item(6).InnerText.Trim());
-
-                    int NextGroup = 0;
-                    if (XmlNode[i].NextSibling != null) { NextGroup = int.Parse(XmlNode[i].NextSibling.ChildNodes.Item(5).InnerText.Trim()); }
-
-                    int NextSubGroup = 0;
-                    if (XmlNode[i].NextSibling != null) { NextSubGroup = int.Parse(XmlNode[i].NextSibling.ChildNodes.Item(6).InnerText.Trim()); }
-
-                    Rectangle Section = new Rectangle(new Point(int.Parse(StrPoint[0]), int.Parse(StrPoint[1])), new Size(int.Parse(StrSize[0]), int.Parse(StrSize[0])));
-
-                    Sections.Add(Section);
-                    Tags.Add(Tag + "_" + j++);
-
-                    if (SubGroup != NextSubGroup)
+                    string Unit_Tag = node.Attributes.GetNamedItem("Unit_Tag").InnerText;
+                    foreach (XmlNode child in node.ChildNodes)
                     {
-
-                        AllSections.Add(Sections);
-                        AllFlips.Add(Flip);
-                        AllTags.Add(Tags);
-
-                        if (Group != NextGroup)
+                        if (child.Name == "Unit")
                         {
-                            new Units(AllSections, Image, AllTags, AllFlips, Tag, ShortTag);
+                            string[] StrPoint = child.ChildNodes.Item(0).InnerText.Trim().Replace("\t", "").Split(',');
+                            string[] StrSize = child.ChildNodes.Item(1).InnerText.Trim().Replace("\t", "").Split(',');
+                            string AnimationTag = child.ChildNodes.Item(2).InnerText.Trim();
+                            string ShortTag = child.ChildNodes.Item(3).InnerText.Trim();
+                            bool Flip = bool.Parse(child.ChildNodes.Item(4).InnerText.Trim());
+                            int SubGroup = int.Parse(child.ChildNodes.Item(5).InnerText.Trim());
 
-                            AllSections = new List<List<Rectangle>>();
-                            AllFlips = new List<bool>();
-                            AllTags = new List<List<string>>();
+                            int NextSubGroup = 0;
+                            if (child.NextSibling != null) { NextSubGroup = int.Parse(child.NextSibling.ChildNodes.Item(5).InnerText.Trim()); }
+
+                            Rectangle Section = new Rectangle(new Point(int.Parse(StrPoint[0]), int.Parse(StrPoint[1])), new Size(int.Parse(StrSize[0]), int.Parse(StrSize[0])));
+
+                            Sections.Add(Section);
+                            Tags.Add(AnimationTag + "_" + j++);
+
+                            if (SubGroup != NextSubGroup)
+                            {
+
+                                AllSections.Add(Sections);
+                                AllFlips.Add(Flip);
+                                AllTags.Add(Tags);
+
+                                if (child.NextSibling == null)
+                                {
+                                    new Units(AllSections, Image, AllTags, AllFlips, Unit_Tag, ShortTag);
+
+                                    AllSections = new List<List<Rectangle>>();
+                                    AllFlips = new List<bool>();
+                                    AllTags = new List<List<string>>();
+                                }
+
+                                Sections = new List<Rectangle>();
+                                Tags = new List<string>();
+
+                                j = 0;
+                            }
                         }
-
-                        Sections = new List<Rectangle>();
-                        Tags = new List<string>();
-
-                        j = 0;
                     }
                 }
                 catch (NullReferenceException ex)
@@ -180,18 +229,85 @@ namespace EEngine.EEngine
         public void UnavailableRight() { AnimationSet = (int)Animations.Unavailable_Right; }
 
 
+        /// <summary>
+        /// Finds upper corner of Unit. Unit may not actually start where the corner of the Sprite is due to sprite size being larger.
+        /// </summary>
+        /// <returns></returns>
+        public Vector2 CalculateUnitUpperBoundingPosition()
+        {
+            Vector2 Bounding_Position = Vector2.Zero();
+            Bounding_Position.X += Position.X + (SpriteLeftBuffer * fScale);
+            Bounding_Position.Y += Position.Y + (SpriteTopBuffer * fScale);
+
+            return Bounding_Position;
+        }
+        /// <summary>
+        /// Finds lower corner of Unit. Unit may not actually end where the corner of the Sprite is due to sprite size being larger.
+        /// </summary>
+        /// <returns></returns>
+        public Vector2 CalculateUnitLowerBoundingPosition()
+        {
+            Vector2 Bounding_Position = Vector2.Zero();
+            Bounding_Position.X += Position.X + vScale.X - (SpriteRightBuffer * fScale);
+            Bounding_Position.Y += Position.Y + vScale.Y - (SpriteBottomBuffer * fScale);
+
+            return Bounding_Position;
+        }
+
+
         public Vector2 GetUnitHealthEffect(Vector2 Position)
         {
-            return new Vector2(Position.X + Unit_Scale.X / 2, Position.Y + (Unit_Scale.Y - 16));
+            float Health_Effect_Scale_Y = 0f;
+            if (Health_Effect != null) { Health_Effect_Scale_Y = Health_Effect.Scale.Y; }
+
+            return new Vector2(Position.X + vScale.X / 2, Position.Y + (vScale.Y - Health_Effect_Scale_Y));
         }
         public void AddUnitHealth(int Health)
         {
             this.Health += Health;
             if (this.Health > MaxHealth) { this.Health = MaxHealth; }
         }
-        public int GetUnitHeath_Rounded()
+        public void SetUnitHealth(int Health)
+        {
+            this.Health = Health;
+        }
+        public int GetUnitHeath()
         {
             return (Health / 10);
+        }
+
+
+        public Vector2 GetUnitStatusEffect(Vector2 Position)
+        {
+            return null;
+        }
+        public Vector2 GetUnitSupplyEffect(Vector2 Position)
+        {
+            //The size of each sprite is 24 pixel, however, the idle sprite is only 16 pixels. This is due to some sprites animations using the full 24 pixels (ie. Bomber movement)
+            return new Vector2(Position.X + vScale.X / 2, Position.Y + (SpriteTopBuffer * fScale)); 
+        }
+        public int GetUnitSupply()
+        {
+            decimal FuelRounded = Math.Ceiling((decimal)MaxFuel / 20);
+
+            if((decimal)Fuel <= (Math.Round(FuelRounded)))
+            {
+                return 0;
+            }
+            return 2;
+        }
+        public void AddUnitFuel()
+        {
+            if (this.Fuel < this.MaxFuel) { this.Fuel = this.MaxFuel; }
+        }
+        public void SubUnitFuel()
+        {
+            this.Fuel--;
+        }
+        public void SetUnitFuel(float Fuel)
+        {
+            this.Fuel = Fuel;
+            if (this.Fuel > MaxFuel) { this.Fuel = MaxFuel; }
         }
 
 

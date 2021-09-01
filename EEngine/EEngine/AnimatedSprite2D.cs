@@ -28,12 +28,19 @@ namespace EEngine.EEngine
             }
 
         }
-
         public AnimatedSprite2D(List<Sprite2D> Sprite, string Tag)
         {
             try
             {
-                if (Sprite.Count == 0) { Log.Error($"[ANIMATEDSPRITE2D]({Tag}) - Sprite is Empty!"); } else { this.Sprite = Sprite; }
+                if (Sprite.Count == 0)
+                {
+                    Log.Error($"[ANIMATEDSPRITE2D]({Tag}) - Sprite is Empty!");
+                }
+                else
+                {
+                    this.Scale = Sprite[0].Scale;
+                    this.Sprite = Sprite;
+                }
                 if (string.IsNullOrEmpty(Tag)) { Log.Warning($"[ANIMATEDSPRITE2D]({Sprite[0].Tag}) - Tag is Null or Empty!"); }
 
                 this.Tag = Tag;
