@@ -7,19 +7,19 @@ namespace EEngine.EEngine
 {
     public class Tiles
     {
-        public Vector2 Tile_Scale = Vector2.Zero();
-        public List<AnimatedSprite2D> Tile_Sprite = new List<AnimatedSprite2D>();
-        public int Tile_Frame = 0;
+        public Vector2 Scale = Vector2.Zero();
+        public List<AnimatedSprite2D> Sprite = new List<AnimatedSprite2D>();
+        public int Frame = 0;
         public string Tag = "";
         public string ShortTag = "";
 
         private enum Animations { Normal, Normal_Fog, Rain, Rain_Fog, Snow, Snow_Fog };
-        public int AnimationSet { get; private set; } = (int)Animations.Normal_Fog;
+        public int AnimationSet { get; private set; } = (int)Animations.Normal;
 
         public Tiles(Vector2 Tile_Scale, List<AnimatedSprite2D> Tile_Sprite, string Tag, string ShortTag, bool Register)
         {
-            this.Tile_Scale = Tile_Scale;
-            this.Tile_Sprite = Tile_Sprite;
+            this.Scale = Tile_Scale;
+            this.Sprite = Tile_Sprite;
             this.Tag = Tag;
             this.ShortTag = ShortTag;
 
@@ -34,7 +34,7 @@ namespace EEngine.EEngine
         /// </summary>
         public Tiles(AnimatedSprite2D AnimatedSprite, string Tag, string ShortTag, bool Register)
         {
-            this.Tile_Sprite.Add(AnimatedSprite);
+            this.Sprite.Add(AnimatedSprite);
             this.Tag = Tag;
             this.ShortTag = ShortTag;
 
@@ -52,8 +52,8 @@ namespace EEngine.EEngine
                 Sprites.Add(new Sprite2D(Section[i], Image, SpriteTag[i], false));
             }
 
-            this.Tile_Scale = new Vector2(Section[0].Width, Section[0].Height);
-            this.Tile_Sprite.Add(new AnimatedSprite2D(Sprites, Tag));
+            this.Scale = new Vector2(Section[0].Width, Section[0].Height);
+            this.Sprite.Add(new AnimatedSprite2D(Sprites, Tag));
             this.ShortTag = ShortTag;
 
             Log.Info($"[TILES]({Tag}) - Has been registered!");
@@ -69,11 +69,11 @@ namespace EEngine.EEngine
                 {
                     Sprites.Add(new Sprite2D(Section[i][j], Image, SpriteTag[i][j], false));
                 }
-                this.Tile_Sprite.Add(new AnimatedSprite2D(Sprites, Tag));
+                this.Sprite.Add(new AnimatedSprite2D(Sprites, Tag));
                 Sprites = new List<Sprite2D>();
             }
 
-            this.Tile_Scale = Tile_Sprite[0].Scale; //Tile_Sprite[0].Scale should be the same across all tiles
+            this.Scale = Sprite[0].Scale; //Tile_Sprite[0].Scale should be the same across all tiles
             this.Tag = Tag;
             this.ShortTag = ShortTag;
 

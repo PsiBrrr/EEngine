@@ -11,9 +11,9 @@ namespace EEngine.EEngine
         public Vector2 vScale = Vector2.Zero();
         private float fScale = 1f;
         public List<AnimatedSprite2D> Unit_Sprite = new List<AnimatedSprite2D>();
+        public int Frame = 0;
         public Effects Health_Effect = null;
         public Effects Supply_Effect = null;
-        public int Unit_Frame = 0;
 
 
         private readonly float SpriteTopBuffer = 8f;
@@ -22,30 +22,33 @@ namespace EEngine.EEngine
         private readonly float SpriteBottomBuffer = 0f;
 
 
-        public int Ammo = 0;
-        public int Cost = 0;
+        private float Ammo = 0f;
+        private float Cost = 0f;
         private float MaxFuel = 0f;
-        private float Fuel = 5;
+        private float Fuel = 0f;
         private readonly int MaxHealth = 100;
         private int Health = 100;
-        public int Movement = 0;
-        public int Vision = 0;
+        private float Movement = 0f;
+        private float Vision = 0f;
 
         public string Tag = "";
         public string ShortTag = "";
 
-        private enum Animations { Idle_Left, Active_Up, Active_Down, Active_Left, Active_Right, Unavailable_Left, Unavailable_Right };
-        public int AnimationSet { get; private set; } = (int)Animations.Idle_Left;
+        private enum Animations { Idle, Active_Up, Active_Down, Active_Left, Active_Right, Unavailable_Left, Unavailable_Right };
+        public int AnimationSet { get; private set; } = (int)Animations.Idle;
 
 
-        public Units(Vector2 Position, Vector2 vScale, List<AnimatedSprite2D> Unit_Sprite, Effects HealthEffect, Effects SupplyEffect, string Tag, string ShortTag, bool Register)
+        public Units(Vector2 Position, Vector2 vScale, Units Unit, int Frame, Effects HealthEffect, Effects SupplyEffect, bool Register)
         {
             this.Position = Position;
             //this.Bounding_Position = CalculateUnitBoundingPosition(Position, Scale);
             this.vScale = vScale;
-            this.Unit_Sprite = Unit_Sprite;
-            this.Tag = Tag;
-            this.ShortTag = ShortTag;
+            this.Unit_Sprite = Unit.Unit_Sprite;
+            this.Frame = Frame;
+            this.Tag = Unit.Tag;
+            this.Cost = Unit.Cost;
+            this.Fuel = Unit.Fuel;
+            this.ShortTag = Unit.ShortTag;
 
             this.Health_Effect = new Effects(GetUnitHealthEffect(Position),
                 HealthEffect.Scale * fScale,
@@ -66,14 +69,17 @@ namespace EEngine.EEngine
                 Log.Info($"[UNITS]({Tag}) - Has been registered!");
             }
         }
-        public Units(Vector2 Position, float fScale, List<AnimatedSprite2D> Unit_Sprite, Effects HealthEffect, Effects SupplyEffect, string Tag, string ShortTag, bool Register)
+        public Units(Vector2 Position, float fScale, Units Unit, int Frame, Effects HealthEffect, Effects SupplyEffect, bool Register)
         {
             this.Position = Position;
             this.fScale = fScale;
-            this.vScale = Unit_Sprite[0].Scale * this.fScale;
-            this.Unit_Sprite = Unit_Sprite;
-            this.Tag = Tag;
-            this.ShortTag = ShortTag;
+            this.vScale = Unit.Unit_Sprite[0].Scale * this.fScale;
+            this.Unit_Sprite = Unit.Unit_Sprite;
+            this.Frame = Frame;
+            this.Tag = Unit.Tag;
+            this.Cost = Unit.Cost;
+            this.Fuel = Unit.Fuel;
+            this.ShortTag = Unit.ShortTag;
 
             this.Health_Effect = new Effects(GetUnitHealthEffect(Position),
                 HealthEffect.Scale * fScale,
@@ -104,7 +110,7 @@ namespace EEngine.EEngine
         /// <param name="SpriteTag">List of Strings. Is a unique Tag assigned to a Sprite2D</param>
         /// <param name="Tag">Unique Tag</param>
         /// <param name="ShortTag">Short hand unique Tag</param>
-        public Units(List<Rectangle> Section, Image Image, List<string> SpriteTag, bool Flip, string Tag, string ShortTag)
+        public Units(List<Rectangle> Section, Image Image, List<string> SpriteTag, bool Flip, string Tag, float Ammo, float Cost, float Fuel, string ShortTag)
         {
             List<Sprite2D> Sprites = new List<Sprite2D>();
 
@@ -116,6 +122,9 @@ namespace EEngine.EEngine
 
             this.Unit_Sprite.Add(new AnimatedSprite2D(Sprites, Tag));
             this.Tag = Tag;
+            this.Ammo = Ammo;
+            this.Cost = Cost;
+            this.Fuel = Fuel;
             this.ShortTag = ShortTag;
 
             EEngine.RegisterUnit(this);
@@ -129,7 +138,7 @@ namespace EEngine.EEngine
         /// <param name="Flip">Boolean. Should these images be flipped</param>
         /// <param name="Tag">Unique Tag</param>
         /// <param name="ShortTag">Short hand unique Tag</param>
-        public Units(List<List<Rectangle>> Section, Image Image, List<List<string>> SpriteTag, List<bool> Flip, string Tag, string ShortTag)
+        public Units(List<List<Rectangle>> Section, Image Image, List<List<string>> SpriteTag, List<bool> Flip, string Tag, float Ammo, float Cost, float Fuel, string ShortTag)
         {
             List<Sprite2D> Sprites = new List<Sprite2D>();
 
@@ -145,6 +154,9 @@ namespace EEngine.EEngine
             }
 
             this.Tag = Tag;
+            this.Ammo = Ammo;
+            this.Cost = Cost;
+            this.Fuel = Fuel;
             this.ShortTag = ShortTag;
 
             EEngine.RegisterUnit(this);
@@ -169,6 +181,9 @@ namespace EEngine.EEngine
                 try
                 {
                     string Unit_Tag = node.Attributes.GetNamedItem("Unit_Tag").InnerText;
+                    float Unit_Ammo = 0f;
+                    float Unit_Cost = float.Parse(node.Attributes.GetNamedItem("Unit_Cost").InnerText);
+                    float Unit_Fuel = float.Parse(node.Attributes.GetNamedItem("Unit_Fuel").InnerText);
                     foreach (XmlNode child in node.ChildNodes)
                     {
                         if (child.Name == "Unit")
@@ -197,7 +212,7 @@ namespace EEngine.EEngine
 
                                 if (child.NextSibling == null)
                                 {
-                                    new Units(AllSections, Image, AllTags, AllFlips, Unit_Tag, ShortTag);
+                                    new Units(AllSections, Image, AllTags, AllFlips, Unit_Tag, Unit_Ammo, Unit_Cost, Unit_Fuel, ShortTag);
 
                                     AllSections = new List<List<Rectangle>>();
                                     AllFlips = new List<bool>();
@@ -220,7 +235,7 @@ namespace EEngine.EEngine
         }
 
 
-        public void Idle() { AnimationSet = (int)Animations.Idle_Left; }
+        public void Idle() { AnimationSet = (int)Animations.Idle; }
         public void Up() { AnimationSet = (int)Animations.Active_Up; }
         public void Down() { AnimationSet = (int)Animations.Active_Down; }
         public void Left() { AnimationSet = (int)Animations.Active_Left; }
@@ -253,7 +268,14 @@ namespace EEngine.EEngine
 
             return Bounding_Position;
         }
+        public Vector2 CalculateUnitOffsetPosition()
+        {
+            Vector2 Offset_Position = Vector2.Zero();
+            Offset_Position.X += Position.X - (SpriteLeftBuffer * fScale);
+            Offset_Position.Y += Position.Y - (SpriteTopBuffer * fScale);
 
+            return Offset_Position;
+        }
 
         public Vector2 GetUnitHealthEffect(Vector2 Position)
         {

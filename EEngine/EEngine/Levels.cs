@@ -9,19 +9,19 @@ namespace EEngine.EEngine
 {
     public class Levels
     {
-        public Vector2 Level_Position = Vector2.Zero();
-        public Vector2 Level_Scale = Vector2.Zero();
-        public Tiles Level_Tile = null;
+        public Vector2 Position = Vector2.Zero();
+        public Vector2 Scale = Vector2.Zero();
+        public Tiles Tile = null;
         public Vector2 Level_Array_Position { get; private set; } = Vector2.Zero();
 
-        public Levels(Vector2 Level_Position, Vector2 Level_Scale, Tiles Level_Tile, Vector2 Level_Array_Position)
+        public Levels(Vector2 Position, Vector2 Scale, Tiles Tile, Vector2 Level_Array_Position)
         {
-            this.Level_Position = Level_Position;
-            this.Level_Scale = Level_Scale;
-            this.Level_Tile = new Tiles(Level_Scale, Level_Tile.Tile_Sprite, Level_Tile.Tag, Level_Tile.ShortTag, false);
+            this.Position = Position;
+            this.Scale = Scale;
+            this.Tile = new Tiles(Scale, Tile.Sprite, Tile.Tag, Tile.ShortTag, false);
             this.Level_Array_Position = Level_Array_Position;
 
-            if (Level_Tile != null) { Log.Info($"[LEVEL]({Level_Tile.Tag} Tile at Position {this.Level_Position.X.ToString()}:{this.Level_Position.Y.ToString()}) - Has been registered!"); }
+            if (Tile != null) { Log.Info($"[LEVEL]({Tile.Tag} Tile at Position {this.Position.X.ToString()}:{this.Position.Y.ToString()}) - Has been registered!"); }
             EEngine.RegisterLevel(this);
         }
 

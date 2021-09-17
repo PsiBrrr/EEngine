@@ -46,6 +46,19 @@ namespace EEngine.EEngine
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+        public static void Info2(string msg)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine($"[INFO] - {msg}");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+        public static void Info2(Vector2 msg)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine($"[INFO] - {msg.X.ToString()}:{msg.Y.ToString()}");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
+
         public static void Warning(string msg)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;

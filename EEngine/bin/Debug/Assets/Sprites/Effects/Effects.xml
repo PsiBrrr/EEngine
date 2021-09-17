@@ -15,12 +15,20 @@
     <Effect><Position>232,  8</Position>    <Size>8,    8</Size>    <Tag>Supply_Icon</Tag>          <ShortTag>si</ShortTag>     <Group>2</Group></Effect>
     <Effect><Position>0,	0</Position>	<Size>8,	8</Size>	<Tag>Supply_Icon</Tag>			<ShortTag>si</ShortTag>		<Group>2</Group></Effect>
 	
-	<Effect><Position>0,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>24,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>48,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>72,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>96,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>120,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>144,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>168,	48</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
+	<Effect><Position>0,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Left_Up</Tag>		<ShortTag>alu</ShortTag>	<Group>3</Group></Effect>
+	<Effect><Position>16,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Right_Up</Tag>		<ShortTag>aru</ShortTag>	<Group>3</Group></Effect>
+	<Effect><Position>32,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Left_Down</Tag>		<ShortTag>ald</ShortTag>	<Group>3</Group></Effect>
+	<Effect><Position>48,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Right_Down</Tag>		<ShortTag>ard</ShortTag>	<Group>3</Group></Effect>
+	<Effect><Position>64,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Head_Down</Tag>		<ShortTag>ahd</ShortTag>	<Group>3</Group></Effect>
+	<Effect><Position>80,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Center_Down</Tag>	<ShortTag>acd</ShortTag>	<Group>3</Group></Effect>
+	<Effect><Position>96,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_End_Down</Tag>		<ShortTag>aed</ShortTag>	<Group>3</Group></Effect>
+	
+	<Effect><Position>0,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
+	<Effect><Position>24,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
+	<Effect><Position>48,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
+	<Effect><Position>72,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
+	<Effect><Position>96,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
+	<Effect><Position>120,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
+	<Effect><Position>144,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
+	<Effect><Position>168,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
 </Effects>

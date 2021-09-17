@@ -16,26 +16,27 @@ namespace EEngine
         Image tileSpriteSheet;
         Image playerSpriteSheet;
         Image effectSpriteSheet;
-        float Scale = 4f;
+        readonly float Scale = 4f;
+        readonly float Speed = 4f;
 
-        bool left;
-        bool right;
-        bool up;
-        bool down;
         bool tab;
+        bool click;
 
         bool num1;
         bool num2;
-        bool num3;
-        bool num4;
-        bool num5;
-        bool num6;
+        //bool num3;
+        //bool num4;
+        //bool num5;
+        //bool num6;
 
         readonly XmlDocument tileDoc = new XmlDocument();
         readonly XmlDocument unitDoc = new XmlDocument();
         readonly XmlDocument effectDoc = new XmlDocument();
 
-        Vector2 lastPos = Vector2.Zero();
+        Armies SelectedUnit;
+        Vector2 TargetPosition;
+
+        //Vector2 lastPos = Vector2.Zero();
         string[,] Map =
         {
             {"tb", "tb", "tb", "tb", "tb", "tb", "tb" },
@@ -81,15 +82,17 @@ namespace EEngine
             new Effects(effectSpriteSheet, effectDoc);
 
             CreateLevel(Scale, Map);
-            SetLevelTileFog();
+            //SetLevelTileFog();
 
             //CreateArmyUnit(new Vector2(300, 200), new Vector2(48, 48), 1, new Vector2(0, 0)); //Manual scale set of army unit
-            CreateArmyUnit(new Vector2(300, 200), Scale, 0, new Vector2(0, 0));
-            CreateArmyUnit(new Vector2(400, 200), Scale, 1, new Vector2(0, 0));
-            CreateArmyUnit(new Vector2(500, 200), Scale, 2, new Vector2(0, 0));
-            CreateArmyUnit(new Vector2(600, 200), Scale, 3, new Vector2(0, 0));
+            CreateArmyUnit(new Vector2(294, 216), Scale, 0, new Vector2(0, 0));
+            CreateArmyUnit(new Vector2(358, 216), Scale, 1, new Vector2(0, 0));
+            CreateArmyUnit(new Vector2(422, 216), Scale, 2, new Vector2(0, 0));
+            CreateArmyUnit(new Vector2(486, 216), Scale, 3, new Vector2(0, 0));
 
             GetArmyUnit(0).Unit.SetUnitHealth(49);
+            SelectedUnit = null;
+            TargetPosition = Vector2.Zero();
         }
 
         int i = 0;
@@ -102,16 +105,13 @@ namespace EEngine
                 Random random = new Random();
                 x = random.Next(0, 800);
                 y = random.Next(0, 600);
-                CreateArmyUnit(new Vector2(x, y), new Vector2(48, 48), 4, new Vector2(0, 0));
+                CreateArmyUnit(new Vector2(x, y), Scale, 5, new Vector2(0, 0));
                 i++;
             }
             if(num2 && i == 0)
             {
-<<<<<<< Updated upstream
-                SetLevelTileFog(new Vector2(6, 7), 3);
-=======
                 SetLevelTileFogVision(new Vector2(3, 3), 3);
->>>>>>> Stashed changes
+
                 i++;
             }
             if(tab && i == 0)
@@ -123,74 +123,57 @@ namespace EEngine
 
         }
 
-        float speed = 3f;
         public override void OnUpdate()
         {
-            GetArmyUnit(0).Unit.Idle();
-            if (up)
+            try
             {
-                GetArmyUnit(0).Unit.Up();
-                GetArmyUnit(0).Position.Y -= speed;
-                //Log.Normal(playerRun.Position);
-            }
+ 
 
-            if (down)
-            {
-                GetArmyUnit(0).Unit.Down();
-                GetArmyUnit(0).Position.Y += speed;
-                //Log.Normal(playerRun.Position);
-            }
-            if (left)
-            {
-                GetArmyUnit(0).Unit.Left();
-                GetArmyUnit(0).Position.X -= speed;
-                //Log.Normal(playerRun.Position);
-            }
-            if (right)
-            {
-                GetArmyUnit(0).Unit.Right();
-                GetArmyUnit(0).Position.X += speed;
-                //Log.Normal(playerRun.Position);
-            }
+                if(click)
+                {
+                    click = SelectedUnit.ArmyUnitMove(TargetPosition, Speed);
+                }
 
 
-            //if(player.IsColliding("Wall"))
-            //{
-            //    //Log.Info($"Colliding! {lastPos.X}");
-            //    //times++;
-            //    player.Position.X = lastPos.X;
-            //    player.Position.Y = lastPos.Y;
-            //}
-            //else
-            //{ 
-            //    lastPos.X = player.Position.X;
-            //    lastPos.Y = player.Position.Y;
-            //}
+                //SelectedUnit.Unit.Idle();
 
-            if (i != 0) { i++; Log.Normal(i); }
-            if (i >= 120) { i = 0; } 
+                //if (up)
+                //{
+                //    SelectedUnit.Unit.Up();
+                //    SelectedUnit.Position.Y -= Speed;
+                //}
+
+                //if(player.IsColliding("Wall"))
+                //{
+                //    //Log.Info($"Colliding! {lastPos.X}");
+                //    //times++;
+                //    player.Position.X = lastPos.X;
+                //    player.Position.Y = lastPos.Y;
+                //}
+                //else
+                //{ 
+                //    lastPos.X = player.Position.X;
+                //    lastPos.Y = player.Position.Y;
+                //}
+
+                if (i != 0) { i++; Log.Normal(i); }
+                if (i >= 60) { i = 0; }
+            }
+            catch(NullReferenceException ex)
+            {
+                Log.Error(ex.Message);
+            }
         }
 
         public override void GetKeyDown(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.W) { up = true; }
-            if (e.KeyCode == Keys.S) { down = true; }
-            if (e.KeyCode == Keys.A) { left = true; }
-            if (e.KeyCode == Keys.D) { right = true; }
             if (e.KeyCode == Keys.Tab) { tab = true; }
-
             if (e.KeyCode == Keys.NumPad1) { num1 = true; }
             if (e.KeyCode == Keys.NumPad2) { num2 = true; }
         }
-
         public override void GetKeyUp(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.W) { up = false; }
-            if (e.KeyCode == Keys.S) { down = false; }
-            if (e.KeyCode == Keys.A) { left = false; }
-            if (e.KeyCode == Keys.D) { right = false; }
             if (e.KeyCode == Keys.Tab) { tab = false; }
-
             if (e.KeyCode == Keys.NumPad1) { num1 = false; }
             if (e.KeyCode == Keys.NumPad2) { num2 = false; }
         }
@@ -199,17 +182,38 @@ namespace EEngine
         {
             if(e.Button == MouseButtons.Left)
             {
+                Armies TempUnit = GetArmyUnit(new Vector2(e.Location.X, e.Location.Y));
+                Vector2 TempTargetPosition = GetLevelTilePosition(new Vector2(e.Location.X, e.Location.Y));
+
                 Log.Normal($"Mouse Left Down at {e.Location}");
-                Log.Warning(GetLevelTileTag(new Vector2(e.Location.X, e.Location.Y)));
-                Log.Normal(GetLevelTilePosition(new Vector2(e.Location.X, e.Location.Y)));
-                Log.Warning(GetArmyUnitTag(new Vector2(e.Location.X, e.Location.Y)));
+
+                if(TempTargetPosition != Vector2.Zero())
+                {
+                    TargetPosition = TempTargetPosition;
+                    Log.Info2(TargetPosition);
+                    if (SelectedUnit != null) { click = true; }
+                }
+
+                if (TempUnit != null)
+                {
+                    SelectedUnit = TempUnit;
+                    Log.Info2(SelectedUnit.Unit.Tag);
+                }
             }
         }
         public override void GetMouseUp(MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { Log.Normal("Mouse Left Up"); }
+            if (e.Button == MouseButtons.Left)
+            {
+                Log.Normal("Mouse Left Up");
+
+            }
         }
         public override void GetMouseWheel(MouseEventArgs e)
+        {
+
+        }
+        public override void GetMouseMove(MouseEventArgs e)
         {
 
         }

@@ -1,57 +1,57 @@
 <Army>
-	<Units Unit_Tag ='Orange Soldier'>
-		<Unit><Position>0,		0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Idle</AnimationTag>					<ShortTag>osi</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
-		<Unit><Position>24, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Idle</AnimationTag>					<ShortTag>osi</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
-		<Unit><Position>48, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Idle</AnimationTag>					<ShortTag>osi</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
-		<Unit><Position>24, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Idle</AnimationTag>					<ShortTag>osi</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
-		<Unit><Position>216, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Up</AnimationTag>					<ShortTag>osru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
-		<Unit><Position>240, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Up</AnimationTag>					<ShortTag>osru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
-		<Unit><Position>264, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Up</AnimationTag>					<ShortTag>osru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
-		<Unit><Position>240, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Up</AnimationTag>					<ShortTag>osru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
-		<Unit><Position>144, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Down</AnimationTag>				<ShortTag>osrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
-		<Unit><Position>168, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Down</AnimationTag>				<ShortTag>osrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
-		<Unit><Position>192, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Down</AnimationTag>				<ShortTag>osrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
-		<Unit><Position>168, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Down</AnimationTag>				<ShortTag>osrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
-		<Unit><Position>72,		0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Left</AnimationTag>				<ShortTag>osrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
-		<Unit><Position>96, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Left</AnimationTag>				<ShortTag>osrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
-		<Unit><Position>120, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Left</AnimationTag>				<ShortTag>osrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
-		<Unit><Position>96, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Left</AnimationTag>				<ShortTag>osrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
-		<Unit><Position>72, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Right</AnimationTag>				<ShortTag>osrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
-		<Unit><Position>96, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Right</AnimationTag>				<ShortTag>osrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
-		<Unit><Position>120, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Right</AnimationTag>				<ShortTag>osrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
-		<Unit><Position>96, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Run_Right</AnimationTag>				<ShortTag>osrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
-		<Unit><Position>288, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Unavailable_Left</AnimationTag>		<ShortTag>osul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
-		<Unit><Position>312, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Unavailable_Left</AnimationTag>		<ShortTag>osul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
-		<Unit><Position>336, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Unavailable_Left</AnimationTag>		<ShortTag>osul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
-		<Unit><Position>312, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Soldier_Unavailable_Left</AnimationTag>		<ShortTag>osul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+	<Units Unit_Tag ='Orange Infantry' Unit_Ammo ='None' Unit_Cost ='1000' Unit_Fuel ='99'>
+		<Unit><Position>0,		0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Idle</AnimationTag>					<ShortTag>oii</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>24, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Idle</AnimationTag>					<ShortTag>oii</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>48, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Idle</AnimationTag>					<ShortTag>oii</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>24, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Idle</AnimationTag>					<ShortTag>oii</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>216, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Up</AnimationTag>					<ShortTag>oiru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>240, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Up</AnimationTag>					<ShortTag>oiru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>264, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Up</AnimationTag>					<ShortTag>oiru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>240, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Up</AnimationTag>					<ShortTag>oiru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>144, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Down</AnimationTag>				<ShortTag>oird</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>168, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Down</AnimationTag>				<ShortTag>oird</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>192, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Down</AnimationTag>				<ShortTag>oird</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>168, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Down</AnimationTag>				<ShortTag>oird</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>72,		0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Left</AnimationTag>				<ShortTag>oirl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>96, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Left</AnimationTag>				<ShortTag>oirl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>120, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Left</AnimationTag>				<ShortTag>oirl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>96, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Left</AnimationTag>				<ShortTag>oirl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>72, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Right</AnimationTag>				<ShortTag>oirr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>96, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Right</AnimationTag>				<ShortTag>oirr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>120, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Right</AnimationTag>				<ShortTag>oirr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>96, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Right</AnimationTag>				<ShortTag>oirr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>288, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable_Left</AnimationTag>		<ShortTag>oiul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>312, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable_Left</AnimationTag>		<ShortTag>oiul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>336, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable_Left</AnimationTag>		<ShortTag>oiul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>312, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable_Left</AnimationTag>		<ShortTag>oiul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
 	</Units>
-	<Units Unit_Tag ='Orange Engineer'>
-		<Unit><Position>0,		24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Idle</AnimationTag>					<ShortTag>oei</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
-		<Unit><Position>24, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Idle</AnimationTag>					<ShortTag>oei</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
-		<Unit><Position>48, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Idle</AnimationTag>					<ShortTag>oei</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
-		<Unit><Position>24, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Idle</AnimationTag>					<ShortTag>oei</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
-		<Unit><Position>216, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Up</AnimationTag>					<ShortTag>oeru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
-		<Unit><Position>240, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Up</AnimationTag>					<ShortTag>oeru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
-		<Unit><Position>264, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Up</AnimationTag>					<ShortTag>oeru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
-		<Unit><Position>240, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Up</AnimationTag>					<ShortTag>oeru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
-		<Unit><Position>144, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Down</AnimationTag>				<ShortTag>oerd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
-		<Unit><Position>168, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Down</AnimationTag>				<ShortTag>oerd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
-		<Unit><Position>192, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Down</AnimationTag>				<ShortTag>oerd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
-		<Unit><Position>168, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Down</AnimationTag>				<ShortTag>oerd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
-		<Unit><Position>72, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Left</AnimationTag>				<ShortTag>oerl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
-		<Unit><Position>96, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Left</AnimationTag>				<ShortTag>oerl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
-		<Unit><Position>120, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Left</AnimationTag>				<ShortTag>oerl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
-		<Unit><Position>96, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Left</AnimationTag>				<ShortTag>oerl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
-		<Unit><Position>72, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Right</AnimationTag>				<ShortTag>oerr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
-		<Unit><Position>96, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Right</AnimationTag>				<ShortTag>oerr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
-		<Unit><Position>120, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Right</AnimationTag>				<ShortTag>oerr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
-		<Unit><Position>96, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Run_Right</AnimationTag>				<ShortTag>oerr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
-		<Unit><Position>288, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Unavailable_Left</AnimationTag>		<ShortTag>oeul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
-		<Unit><Position>312, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Unavailable_Left</AnimationTag>		<ShortTag>oeul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
-		<Unit><Position>336, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Unavailable_Left</AnimationTag>		<ShortTag>oeul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
-		<Unit><Position>312, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Engineer_Unavailable_Left</AnimationTag>		<ShortTag>oeul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+	<Units Unit_Tag ='Orange Mech' Unit_Ammo ='3' Unit_Cost ='3000' Unit_Fuel ='70'>
+		<Unit><Position>0,		24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Idle</AnimationTag>					<ShortTag>omi</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>24, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Idle</AnimationTag>					<ShortTag>omi</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>48, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Idle</AnimationTag>					<ShortTag>omi</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>24, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Idle</AnimationTag>					<ShortTag>omi</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>216, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Up</AnimationTag>					<ShortTag>omru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>240, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Up</AnimationTag>					<ShortTag>omru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>264, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Up</AnimationTag>					<ShortTag>omru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>240, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Up</AnimationTag>					<ShortTag>omru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>144, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Down</AnimationTag>				<ShortTag>omrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>168, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Down</AnimationTag>				<ShortTag>omrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>192, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Down</AnimationTag>				<ShortTag>omrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>168, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Down</AnimationTag>				<ShortTag>omrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>72, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Left</AnimationTag>				<ShortTag>omrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>96, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Left</AnimationTag>				<ShortTag>omrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>120, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Left</AnimationTag>				<ShortTag>omrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>96, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Left</AnimationTag>				<ShortTag>omrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>72, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Right</AnimationTag>				<ShortTag>omrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>96, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Right</AnimationTag>				<ShortTag>omrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>120, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Right</AnimationTag>				<ShortTag>omrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>96, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Run_Right</AnimationTag>				<ShortTag>omrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>288, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Unavailable_Left</AnimationTag>		<ShortTag>omul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>312, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Unavailable_Left</AnimationTag>		<ShortTag>omul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>336, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Unavailable_Left</AnimationTag>		<ShortTag>omul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>312, 	24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Unavailable_Left</AnimationTag>		<ShortTag>omul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
 	</Units>
-	<Units Unit_Tag ='Orange Recon'>
+	<Units Unit_Tag ='Orange Recon' Unit_Ammo ='None' Unit_Cost ='4000' Unit_Fuel ='80'>
 		<Unit><Position>0, 		48</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Recon_Idle</AnimationTag>						<ShortTag>ori</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
 		<Unit><Position>24, 	48</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Recon_Idle</AnimationTag>						<ShortTag>ori</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
 		<Unit><Position>48, 	48</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Recon_Idle</AnimationTag>						<ShortTag>ori</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
@@ -77,7 +77,7 @@
 		<Unit><Position>336, 	48</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Recon_Unavailable_Left</AnimationTag>			<ShortTag>orul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
 		<Unit><Position>312, 	48</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Recon_Unavailable_Left</AnimationTag>			<ShortTag>orul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
 	</Units>
-	<Units Unit_Tag ='Orange Tank'>
+	<Units Unit_Tag ='Orange Tank' Unit_Ammo ='9' Unit_Cost ='7000' Unit_Fuel ='70'>
 		<Unit><Position>0, 		72</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Tank_Idle</AnimationTag>						<ShortTag>oti</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
 		<Unit><Position>24, 	72</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Tank_Idle</AnimationTag>						<ShortTag>oti</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
 		<Unit><Position>48, 	72</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Tank_Idle</AnimationTag>						<ShortTag>oti</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
@@ -103,7 +103,7 @@
 		<Unit><Position>336, 	72</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Tank_Unavailable_Left</AnimationTag>			<ShortTag>otul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
 		<Unit><Position>312, 	72</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Tank_Unavailable_Left</AnimationTag>			<ShortTag>otul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
 	</Units>
-	<Units Unit_Tag ='Orange Medium Tank'>
+	<Units Unit_Tag ='Orange Medium Tank' Unit_Ammo ='8' Unit_Cost ='16000' Unit_Fuel ='50'>
 		<Unit><Position>0, 		96</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Medium_Tank_Idle</AnimationTag>				<ShortTag>omti</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
 		<Unit><Position>24, 	96</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Medium_Tank_Idle</AnimationTag>				<ShortTag>omti</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
 		<Unit><Position>48, 	96</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Medium_Tank_Idle</AnimationTag>				<ShortTag>omti</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
@@ -128,6 +128,32 @@
 		<Unit><Position>312, 	96</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Medium_Tank_Unavailable_Left</AnimationTag>	<ShortTag>omtul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
 		<Unit><Position>336, 	96</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Medium_Tank_Unavailable_Left</AnimationTag>	<ShortTag>omtul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
 		<Unit><Position>312, 	96</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Medium_Tank_Unavailable_Left</AnimationTag>	<ShortTag>omtul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+	</Units>
+	<Units Unit_Tag ='Orange NeoTank' Unit_Ammo ='9' Unit_Cost ='22000' Unit_Fuel ='99'>
+		<Unit><Position>0, 		120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Idle</AnimationTag>				<ShortTag>onti</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>24, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Idle</AnimationTag>				<ShortTag>onti</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>48, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Idle</AnimationTag>				<ShortTag>onti</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>24, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Idle</AnimationTag>				<ShortTag>onti</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>
+		<Unit><Position>216, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Up</AnimationTag>				<ShortTag>ontru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>240, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Up</AnimationTag>				<ShortTag>ontru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>264, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Up</AnimationTag>				<ShortTag>ontru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>240, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Up</AnimationTag>				<ShortTag>ontru</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Unit>
+		<Unit><Position>144, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Down</AnimationTag>			<ShortTag>ontrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>168, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Down</AnimationTag>			<ShortTag>ontrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>192, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Down</AnimationTag>			<ShortTag>ontrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>168, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Down</AnimationTag>			<ShortTag>ontrd</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>3</SubGroup></Unit>
+		<Unit><Position>72, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Left</AnimationTag>			<ShortTag>ontrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>96, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Left</AnimationTag>			<ShortTag>ontrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>120, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Left</AnimationTag>			<ShortTag>ontrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>96, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Left</AnimationTag>			<ShortTag>ontrl</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>4</SubGroup></Unit>
+		<Unit><Position>72, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Right</AnimationTag>			<ShortTag>ontrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>96, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Right</AnimationTag>			<ShortTag>ontrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>120, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Right</AnimationTag>			<ShortTag>ontrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>96, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Run_Right</AnimationTag>			<ShortTag>ontrr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
+		<Unit><Position>288, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Unavailable_Left</AnimationTag>	<ShortTag>ontul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>312, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Unavailable_Left</AnimationTag>	<ShortTag>ontul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>336, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Unavailable_Left</AnimationTag>	<ShortTag>ontul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>312, 	120</Position>	<Size>24,24</Size>	<AnimationTag>Orange_NeoTank_Unavailable_Left</AnimationTag>	<ShortTag>ontul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
 	</Units>
 </Army>
 

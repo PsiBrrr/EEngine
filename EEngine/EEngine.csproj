@@ -71,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoGame.cs" />
-    <Compile Include="EEngine\AnimatedSprite2D.cs" />
+    <Compile Include="EEngine\Sprites\AnimatedSprite2D.cs" />
     <Compile Include="EEngine\Armies.cs" />
     <Compile Include="EEngine\Between.cs" />
     <Compile Include="EEngine\EEngine.cs">
@@ -81,7 +81,7 @@
     <Compile Include="EEngine\Levels.cs" />
     <Compile Include="EEngine\Log.cs" />
     <Compile Include="EEngine\Pair.cs" />
-    <Compile Include="EEngine\Sprite2D.cs" />
+    <Compile Include="EEngine\Sprites\Sprite2D.cs" />
     <Compile Include="EEngine\Tiles.cs" />
     <Compile Include="EEngine\Units.cs" />
     <Compile Include="EEngine\Vector2.cs" />

@@ -80,5 +80,16 @@ namespace EEngine.EEngine
         {
             return new Vector2(A.X / B, A.Y / B);
         }
+
+        public static bool operator ==(Vector2 A, Vector2 B)
+        {
+            if (A.X == B.X && A.Y == B.Y) { return true; }
+            else { return false; }
+        }
+        public static bool operator !=(Vector2 A, Vector2 B)
+        {
+            if (A.X == B.X && A.Y == B.Y) { return false; }
+            else { return true; }
+        }
     }
 }
