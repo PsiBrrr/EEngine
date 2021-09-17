@@ -21,7 +21,6 @@ namespace EEngine
 
         bool tab;
         bool click;
-
         bool num1;
         bool num2;
         //bool num3;
@@ -127,12 +126,8 @@ namespace EEngine
         {
             try
             {
- 
+                if (click) { click = SelectedUnit.ArmyUnitMove(TargetPosition, Speed); }
 
-                if(click)
-                {
-                    click = SelectedUnit.ArmyUnitMove(TargetPosition, Speed);
-                }
 
 
                 //SelectedUnit.Unit.Idle();
