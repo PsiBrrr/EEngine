@@ -75,12 +75,12 @@ namespace EEngine
                 Log.Error(ex.Message);
             }
 
-
             new Tiles(tileSpriteSheet, tileDoc);
             new Units(playerSpriteSheet, unitDoc);
             new Effects(effectSpriteSheet, effectDoc);
 
-            CreateLevel(Scale, Map);
+
+            CreateMap(Scale, Map);
             //SetLevelTileFog();
 
             //CreateArmyUnit(new Vector2(300, 200), new Vector2(48, 48), 1, new Vector2(0, 0)); //Manual scale set of army unit
@@ -109,7 +109,7 @@ namespace EEngine
             }
             if(num2 && i == 0)
             {
-                SetLevelTileFogVision(new Vector2(3, 3), 3);
+                SetMapTileFogVision(new Vector2(3, 3), 3);
 
                 i++;
             }
@@ -126,9 +126,7 @@ namespace EEngine
         {
             try
             {
-                if (click) { click = SelectedUnit.ArmyUnitMove(TargetPosition, Speed); }
-
-
+                if (click) { click = SelectedUnit.ArmyUnitMoveY(TargetPosition, Speed); }
 
                 //SelectedUnit.Unit.Idle();
 
@@ -178,7 +176,7 @@ namespace EEngine
             if(e.Button == MouseButtons.Left)
             {
                 Armies TempUnit = GetArmyUnit(new Vector2(e.Location.X, e.Location.Y));
-                Vector2 TempTargetPosition = GetLevelTilePosition(new Vector2(e.Location.X, e.Location.Y));
+                Vector2 TempTargetPosition = GetMapTilePosition(new Vector2(e.Location.X, e.Location.Y));
 
                 Log.Normal($"Mouse Left Down at {e.Location}");
 

@@ -30,7 +30,7 @@ namespace EEngine.EEngine
         private static List<Armies> Armies = new List<Armies>();
         private static List<Tiles> AllTiles = new List<Tiles>();
         //private static List<Buildings> AllBuildings = new List<Buildings>();
-        private static List<List<Levels>> Levels = new List<List<Levels>>();
+        private static List<List<Map>> Map = new List<List<Map>>();
         private static List<Effects> AllEffects = new List<Effects>();
 
         private static int Timers = 0;
@@ -240,28 +240,28 @@ namespace EEngine.EEngine
         /// Initializes the internal lists of the multidimensional list "Levels"
         /// </summary>
         /// <param name="Row_Y">Number of internal lists. Based on the MapArray height</param>
-        public static void InitializeLevelArry(int Row_Y)
+        public static void InitializeMapArray(int Row_Y)
         {
             for(int y = 0; y < Row_Y; y++)
             {
-                Levels.Add(new List<Levels>());
+                Map.Add(new List<Map>());
             }
         }
-        public static void RegisterLevel(Levels Level)
+        public static void RegisterMap(Map map)
         {
-            Levels[(int)Level.Level_Array_Position.Y].Add(Level);
+            Map[(int)map.Map_Array_Position.Y].Add(map);
         }
-        public static void UnRegisterLevel(Levels Level)
+        public static void UnRegisterMap(Map map)
         {
-            Levels[(int)Level.Level_Array_Position.Y].Remove(Level);
+            Map[(int)map.Map_Array_Position.Y].Remove(map);
         }
-        public static Vector2 GetLevelTilePosition(Vector2 Position)
+        public static Vector2 GetMapTilePosition(Vector2 Position)
         {
             Vector2 Level_Array_Position = Vector2.Zero();
 
-            foreach (List<Levels> levelY in Levels.ToList())
+            foreach (List<Map> levelY in Map.ToList())
             {
-                foreach (Levels levelX in levelY.ToList())
+                foreach (Map levelX in levelY.ToList())
                 {
                     if (Position.X.IsBetween(levelX.Position.X, (levelX.Position.X + levelX.Scale.X)) 
                         && Position.Y.IsBetween(levelX.Position.Y, (levelX.Position.Y + levelX.Scale.Y)))
@@ -271,13 +271,13 @@ namespace EEngine.EEngine
 
             return Level_Array_Position;
         }
-        public static String GetLevelTileTag(Vector2 Position)
+        public static String GetMapTileTag(Vector2 Position)
         {
             String Level_Array_Tag = "";
 
-            foreach (List<Levels> levelY in Levels.ToList())
+            foreach (List<Map> levelY in Map.ToList())
             {
-                foreach (Levels levelX in levelY.ToList())
+                foreach (Map levelX in levelY.ToList())
                 {
                     if (Position.X.IsBetween(levelX.Position.X, (levelX.Position.X + levelX.Scale.X))
                         && Position.Y.IsBetween(levelX.Position.Y, (levelX.Position.Y + levelX.Scale.Y)))
@@ -287,25 +287,25 @@ namespace EEngine.EEngine
 
             return Level_Array_Tag;
         }
-        public static void CreateLevel(float Scale, string[,] Map)
+        public static void CreateMap(float Scale, string[,] Map)
         {
             //GetTile(0).Tile_Scale should be the same for all tiles
-            new Levels(Scale, GetTile(0).Scale, Map);
+            new Map(Scale, GetTile(0).Scale, Map);
         }
 
-        public static void SetLevelTileFog()
+        public static void SetMapTileFog()
         {
-            for (int i = 0; i < Levels.Count; i++)
+            for (int i = 0; i < Map.Count; i++)
             {
-                for (int j = 0; j < Levels[i].Count; j++)
+                for (int j = 0; j < Map[i].Count; j++)
                 {
-                    Levels[i][j].Tile.Normal();
+                    Map[i][j].Tile.Normal();
                 }
             } 
         }
-        public static void SetLevelTileFogVision(Vector2 Level_Array_Position, int Vision)
+        public static void SetMapTileFogVision(Vector2 Map_Array_Position, int Vision)
         {
-            Level_Array_Position.X -= Vision - 1; //Start Position along X axis
+            Map_Array_Position.X -= Vision - 1; //Start Position along X axis
             int VisionSize = ((Vision * 2) - 1); //Vision Width
 
             for (int i = 0; i < Vision; i++)
@@ -317,17 +317,17 @@ namespace EEngine.EEngine
                     //{ continue; }
                     //Levels[(int)Level_Array_Position.Y + j][(int)Level_Array_Position.X + i].Level_Tile.Normal();
 
-                    if (((int)Level_Array_Position.Y + j).IsBetween(0, (Levels.Count - 1))
-                        && ((int)Level_Array_Position.X + i).IsBetween(0, (Levels[(int)Level_Array_Position.Y + j].Count - 1)))
-                    { Levels[(int)Level_Array_Position.Y + j][(int)Level_Array_Position.X + i].Tile.Normal(); }
+                    if (((int)Map_Array_Position.Y + j).IsBetween(0, (Map.Count - 1))
+                        && ((int)Map_Array_Position.X + i).IsBetween(0, (Map[(int)Map_Array_Position.Y + j].Count - 1)))
+                    { Map[(int)Map_Array_Position.Y + j][(int)Map_Array_Position.X + i].Tile.Normal(); }
 
                     //if (!((int)Level_Array_Position.X + ((VisionSize - 1) - i)).IsBetween(0, (Levels[(int)Level_Array_Position.Y + j].Count - 1)))
                     //{ continue; }
                     //Levels[(int)Level_Array_Position.Y + j][(int)Level_Array_Position.X + ((VisionSize - 1) - i)].Level_Tile.Normal();
 
-                    if (((int)Level_Array_Position.Y + j).IsBetween(0, (Levels.Count - 1))
-                        && ((int)Level_Array_Position.X + ((VisionSize - 1) - i)).IsBetween(0, (Levels[(int)Level_Array_Position.Y + j].Count - 1)))
-                    { Levels[(int)Level_Array_Position.Y + j][(int)Level_Array_Position.X + ((VisionSize - 1) - i)].Tile.Normal(); }
+                    if (((int)Map_Array_Position.Y + j).IsBetween(0, (Map.Count - 1))
+                        && ((int)Map_Array_Position.X + ((VisionSize - 1) - i)).IsBetween(0, (Map[(int)Map_Array_Position.Y + j].Count - 1)))
+                    { Map[(int)Map_Array_Position.Y + j][(int)Map_Array_Position.X + ((VisionSize - 1) - i)].Tile.Normal(); }
 
                 }
             }
@@ -357,9 +357,9 @@ namespace EEngine.EEngine
         {
             if (Timer == TimerLimits)
             {
-                foreach (List<Levels> levelY in Levels.ToList())
+                foreach (List<Map> levelY in Map.ToList())
                 {
-                    foreach (Levels levelX in levelY)
+                    foreach (Map levelX in levelY)
                     {
                         if (levelX.Tile.Sprite[levelX.Tile.AnimationSet].Sprite.Count > 1) { levelX.Tile.Frame++; }
                         if (levelX.Tile.Frame == levelX.Tile.Sprite[levelX.Tile.AnimationSet].Sprite.Count) { levelX.Tile.Frame = 0; }
@@ -447,9 +447,9 @@ namespace EEngine.EEngine
             if (Load)
             {
                 FrameTile(Timers);
-                foreach (List<Levels> levelY in Levels.ToList())
+                foreach (List<Map> levelY in Map.ToList())
                 {
-                    foreach (Levels levelX in levelY.ToList())
+                    foreach (Map levelX in levelY.ToList())
                     {
                         g.DrawImage(levelX.Tile.Sprite[levelX.Tile.AnimationSet].Sprite[levelX.Tile.Frame].Sprite,
                             levelX.Position.X,

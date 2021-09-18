@@ -48,7 +48,7 @@ namespace EEngine.EEngine
             }
         }
 
-        public bool ArmyUnitMove(Vector2 TargetPosition, float Speed)
+        public bool ArmyUnitMoveX(Vector2 TargetPosition, float Speed)
         {
             if (TargetPosition.X < Position.X)
             {
@@ -61,6 +61,30 @@ namespace EEngine.EEngine
             {
                 Unit.Right();
                 Position.X += Speed;
+
+                return true;
+            }
+            else
+            {
+                Unit.Idle();
+
+                return false;
+            }
+        }
+
+        public bool ArmyUnitMoveY(Vector2 TargetPosition, float Speed)
+        {
+            if (TargetPosition.Y < Position.Y)
+            {
+                Unit.Up();
+                Position.Y -= Speed;
+
+                return true;
+            }
+            else if (TargetPosition.Y > Position.Y)
+            {
+                Unit.Down();
+                Position.Y += Speed;
 
                 return true;
             }

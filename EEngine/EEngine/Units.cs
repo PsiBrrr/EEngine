@@ -23,7 +23,7 @@ namespace EEngine.EEngine
 
 
         private float Ammo = 0f;
-        private float Cost = 0f;
+        public float Cost { get; private set; } = 0f;
         private float MaxFuel = 0f;
         private float Fuel = 0f;
         private readonly int MaxHealth = 100;
