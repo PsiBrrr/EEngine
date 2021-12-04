@@ -19,6 +19,11 @@ namespace EEngine
         readonly float Scale = 4f;
         readonly float Speed = 4f;
 
+        bool Up;
+        bool Down;
+        bool Left;
+        bool Right;
+
         bool tab;
         bool click;
         bool num1;
@@ -128,13 +133,22 @@ namespace EEngine
             {
                 if (click) { click = SelectedUnit.ArmyUnitMoveY(TargetPosition, Speed); }
 
-                //SelectedUnit.Unit.Idle();
-
-                //if (up)
-                //{
-                //    SelectedUnit.Unit.Up();
-                //    SelectedUnit.Position.Y -= Speed;
-                //}
+                if (Up)
+                {
+                    SetCameraPositionY(-Speed);
+                }
+                if (Down)
+                {
+                    SetCameraPositionY(Speed);
+                }
+                if (Left)
+                {
+                    SetCameraPositionX(-Speed);
+                }
+                if (Right)
+                {
+                    SetCameraPositionX(Speed);
+                }
 
                 //if(player.IsColliding("Wall"))
                 //{
@@ -160,12 +174,22 @@ namespace EEngine
 
         public override void GetKeyDown(KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.W) { Up = true; }
+            if (e.KeyCode == Keys.S) { Down = true; }
+            if (e.KeyCode == Keys.A) { Left = true; }
+            if (e.KeyCode == Keys.D) { Right = true; }
+
             if (e.KeyCode == Keys.Tab) { tab = true; }
             if (e.KeyCode == Keys.NumPad1) { num1 = true; }
             if (e.KeyCode == Keys.NumPad2) { num2 = true; }
         }
         public override void GetKeyUp(KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.W) { Up = false; }
+            if (e.KeyCode == Keys.S) { Down = false; }
+            if (e.KeyCode == Keys.A) { Left = false; }
+            if (e.KeyCode == Keys.D) { Right = false; }
+
             if (e.KeyCode == Keys.Tab) { tab = false; }
             if (e.KeyCode == Keys.NumPad1) { num1 = false; }
             if (e.KeyCode == Keys.NumPad2) { num2 = false; }
@@ -175,14 +199,14 @@ namespace EEngine
         {
             if(e.Button == MouseButtons.Left)
             {
-                Armies TempUnit = GetArmyUnit(new Vector2(e.Location.X, e.Location.Y));
-                Vector2 TempTargetPosition = GetMapTilePosition(new Vector2(e.Location.X, e.Location.Y));
-
                 Log.Normal($"Mouse Left Down at {e.Location}");
 
-                if(TempTargetPosition != Vector2.Zero())
+                Armies TempUnit = GetArmyUnit(new Vector2(e.Location.X, e.Location.Y));
+                Map TempMap = GetMapItem(new Vector2(e.Location.X, e.Location.Y));
+                
+                if(TempMap != null)
                 {
-                    TargetPosition = TempTargetPosition;
+                    TargetPosition = TempMap.Position;
                     Log.Info2(TargetPosition);
                     if (SelectedUnit != null) { click = true; }
                 }

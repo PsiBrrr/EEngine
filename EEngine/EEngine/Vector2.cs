@@ -26,7 +26,6 @@ namespace EEngine.EEngine
         {
             return new Vector2(1, 1);
         }
-
         /// <summary>
         /// Returns X and Y as 0
         /// </summary>
@@ -34,6 +33,12 @@ namespace EEngine.EEngine
         {
             return new Vector2(0, 0);
         }
+        public static Vector2 Negative()
+        {
+            return new Vector2(-1, -1);
+        }
+
+
 
         public static Point AsPoint(Vector2 A)
         {
@@ -79,6 +84,16 @@ namespace EEngine.EEngine
         public static Vector2 operator /(Vector2 A, int B)
         {
             return new Vector2(A.X / B, A.Y / B);
+        }
+        public static bool operator >(Vector2 A, Vector2 B)
+        {
+            if (A.X > B.X && A.Y > B.Y) { return true; }
+            else { return false; }
+        }
+        public static bool operator <(Vector2 A, Vector2 B)
+        {
+            if (A.X < B.X && A.Y < B.Y) { return true; }
+            else { return false; }
         }
 
         public static bool operator ==(Vector2 A, Vector2 B)

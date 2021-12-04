@@ -251,8 +251,8 @@ namespace EEngine.EEngine
         public Vector2 CalculateUnitUpperBoundingPosition()
         {
             Vector2 Bounding_Position = Vector2.Zero();
-            Bounding_Position.X += Position.X + (SpriteLeftBuffer * fScale);
-            Bounding_Position.Y += Position.Y + (SpriteTopBuffer * fScale);
+            Bounding_Position.X += CalculateUnitOffsetPosition().X + (SpriteLeftBuffer * fScale);
+            Bounding_Position.Y += CalculateUnitOffsetPosition().Y + (SpriteTopBuffer * fScale);
 
             return Bounding_Position;
         }
@@ -263,8 +263,8 @@ namespace EEngine.EEngine
         public Vector2 CalculateUnitLowerBoundingPosition()
         {
             Vector2 Bounding_Position = Vector2.Zero();
-            Bounding_Position.X += Position.X + vScale.X - (SpriteRightBuffer * fScale);
-            Bounding_Position.Y += Position.Y + vScale.Y - (SpriteBottomBuffer * fScale);
+            Bounding_Position.X += CalculateUnitOffsetPosition().X + vScale.X - (SpriteRightBuffer * fScale);
+            Bounding_Position.Y += CalculateUnitOffsetPosition().Y + vScale.Y - (SpriteBottomBuffer * fScale);
 
             return Bounding_Position;
         }

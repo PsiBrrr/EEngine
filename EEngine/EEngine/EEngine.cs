@@ -26,6 +26,8 @@ namespace EEngine.EEngine
         private Thread GameLoopThread = null;
         //private Task GameLoopTask = null;
 
+        private static Map map; //temporary until list of levels implemented
+
         private static List<Units> AllUnits = new List<Units>();
         private static List<Armies> Armies = new List<Armies>();
         private static List<Tiles> AllTiles = new List<Tiles>();
@@ -42,7 +44,7 @@ namespace EEngine.EEngine
 
         public Color BackgroundColor = Color.Beige;
 
-        public Vector2 CameraPosition = Vector2.Zero();
+        private static Vector2 CameraPosition = Vector2.Zero();
         public float CameraAngle = 0f;
 
         public EEngine(Vector2 ScreenSize, string Title)
@@ -105,10 +107,24 @@ namespace EEngine.EEngine
             GetMouseMove(e);
         }
 
+
         public static Vector2 GetScreenCenter()
         {
             return new Vector2((ScreenSize.X / 2), (ScreenSize.Y / 2));
         }
+        public static Vector2 GetCameraPosition()
+        {
+            return CameraPosition;
+        }
+        public static void SetCameraPositionY(float Change)
+        {
+            CameraPosition.Y += Change;
+        }
+        public static void SetCameraPositionX(float Change)
+        {
+            CameraPosition.X += Change;
+        }
+
 
         public static void RegisterUnit(Units Unit)
         {
@@ -237,10 +253,10 @@ namespace EEngine.EEngine
 
 
         /// <summary>
-        /// Initializes the internal lists of the multidimensional list "Levels"
+        /// Initializes the internal lists of the multidimensional list "Map"
         /// </summary>
         /// <param name="Row_Y">Number of internal lists. Based on the MapArray height</param>
-        public static void InitializeMapArray(int Row_Y)
+        public static void InitializeMapArrayY(int Row_Y)
         {
             for(int y = 0; y < Row_Y; y++)
             {
@@ -249,49 +265,25 @@ namespace EEngine.EEngine
         }
         public static void RegisterMap(Map map)
         {
-            Map[(int)map.Map_Array_Position.Y].Add(map);
+            Map[(int)map.Map_Array_Index.Y].Add(map);
         }
         public static void UnRegisterMap(Map map)
         {
-            Map[(int)map.Map_Array_Position.Y].Remove(map);
-        }
-        public static Vector2 GetMapTilePosition(Vector2 Position)
-        {
-            Vector2 Level_Array_Position = Vector2.Zero();
-
-            foreach (List<Map> levelY in Map.ToList())
-            {
-                foreach (Map levelX in levelY.ToList())
-                {
-                    if (Position.X.IsBetween(levelX.Position.X, (levelX.Position.X + levelX.Scale.X)) 
-                        && Position.Y.IsBetween(levelX.Position.Y, (levelX.Position.Y + levelX.Scale.Y)))
-                    { Level_Array_Position = levelX.Position; }
-                }
-            }
-
-            return Level_Array_Position;
-        }
-        public static String GetMapTileTag(Vector2 Position)
-        {
-            String Level_Array_Tag = "";
-
-            foreach (List<Map> levelY in Map.ToList())
-            {
-                foreach (Map levelX in levelY.ToList())
-                {
-                    if (Position.X.IsBetween(levelX.Position.X, (levelX.Position.X + levelX.Scale.X))
-                        && Position.Y.IsBetween(levelX.Position.Y, (levelX.Position.Y + levelX.Scale.Y)))
-                    { Level_Array_Tag = levelX.Tile.Tag; }
-                }
-            }
-
-            return Level_Array_Tag;
+            Map[(int)map.Map_Array_Index.Y].Remove(map);
         }
         public static void CreateMap(float Scale, string[,] Map)
         {
             //GetTile(0).Tile_Scale should be the same for all tiles
-            new Map(Scale, GetTile(0).Scale, Map);
+           map = new Map(Scale, GetTile(0).vScale, Map);
         }
+        public static Map GetMapItem(Vector2 World_Position)
+        {
+            Vector2 Map_Array_Index = map.GetMapTileArrayIndex(World_Position);
+
+            if (Map_Array_Index != Vector2.Negative()) { return Map[(int)Map_Array_Index.Y][(int)Map_Array_Index.X]; }
+            else { return null; }
+        }
+
 
         public static void SetMapTileFog()
         {
@@ -490,7 +482,7 @@ namespace EEngine.EEngine
                         army.Unit.Supply_Effect.Scale.X,
                         army.Unit.Supply_Effect.Scale.Y);
                 }
-                g.DrawString("Butts", new Font("Arial", 16), new SolidBrush(Color.White), new PointF(0f, 0f));
+                g.DrawString("Butts", new Font("Arial", 16), new SolidBrush(Color.White), new PointF(0f - GetCameraPosition().X, 0f - GetCameraPosition().Y));
             }
 
             Timers++;
