@@ -12,6 +12,8 @@ namespace EEngine.EEngine
         public string Tag = "";
         public Bitmap Sprite = null;
 
+        private Color AlphaColor = Color.FromArgb(255, 255, 127, 255);
+
         /// <summary>
         /// Creates then Registers a Bitmap from a single sprite from image
         /// </summary>
@@ -26,7 +28,12 @@ namespace EEngine.EEngine
             Bitmap tmpSprite = new Bitmap(tmpImage);
 
             Sprite = tmpSprite;
-            if (Transparent) { Sprite.MakeTransparent(); }
+            if (Transparent) {
+                AlphaColor = Sprite.GetPixel(0, 0);
+                Sprite.MakeTransparent(AlphaColor);
+            }
+
+            tmpSprite.Dispose();
         }
         /// <summary>
         /// Creates then Registers a Bitmap from a sprite sheet from image
@@ -43,7 +50,7 @@ namespace EEngine.EEngine
             Bitmap sprite = tmpSprite.Clone(Section, tmpSprite.PixelFormat);
 
             Sprite = sprite;
-            if (Transparent) { Sprite.MakeTransparent(); }
+            if (Transparent) { Sprite.MakeTransparent(AlphaColor); }
 
             tmpSprite.Dispose();
         }
@@ -63,7 +70,9 @@ namespace EEngine.EEngine
             tmpSprite.RotateFlip(RotateFlip);
 
             Sprite = tmpSprite;
-            if (Transparent) { Sprite.MakeTransparent(); }
+            if (Transparent) { Sprite.MakeTransparent(AlphaColor); }
+
+            tmpSprite.Dispose();
         }
         /// <summary>
         /// Creates then Registers a Bitmap from a sprite sheet from image.
@@ -82,7 +91,7 @@ namespace EEngine.EEngine
             sprite.RotateFlip(RotateFlip);
 
             Sprite = sprite;
-            if (Transparent) { Sprite.MakeTransparent(); }
+            if (Transparent) { Sprite.MakeTransparent(AlphaColor); }
 
             tmpSprite.Dispose();
         }
@@ -101,7 +110,9 @@ namespace EEngine.EEngine
             Bitmap tmpSprite = new Bitmap(tmpImage);
 
             Sprite = tmpSprite;
-            if (Transparent) { Sprite.MakeTransparent(); }
+            if (Transparent) { Sprite.MakeTransparent(AlphaColor); }
+
+            tmpSprite.Dispose();
         }
         /// <summary>
         /// Creates a Bitmap from a sprite sheet from image
@@ -120,7 +131,7 @@ namespace EEngine.EEngine
                 Bitmap sprite = tmpSprite.Clone(Section, tmpSprite.PixelFormat);
 
                 Sprite = sprite;
-                if (Transparent) { Sprite.MakeTransparent(); }
+                if (Transparent) { Sprite.MakeTransparent(AlphaColor); }
 
                 tmpSprite.Dispose();
             }
@@ -144,7 +155,9 @@ namespace EEngine.EEngine
             tmpSprite.RotateFlip(RotateFlip);
 
             Sprite = tmpSprite;
-            if (Transparent) { Sprite.MakeTransparent(); }
+            if (Transparent) { Sprite.MakeTransparent(AlphaColor); }
+
+            tmpSprite.Dispose();
         }
         /// <summary>
         /// Creates a Bitmap from a sprite sheet from image.
@@ -165,7 +178,7 @@ namespace EEngine.EEngine
                 sprite.RotateFlip(RotateFlip);
 
                 Sprite = sprite;
-                if (Transparent) { Sprite.MakeTransparent(); }
+                if (Transparent) { Sprite.MakeTransparent(AlphaColor); }
 
                 tmpSprite.Dispose();
             }
@@ -174,39 +187,6 @@ namespace EEngine.EEngine
                 Log.Error($"[SPRITE2D] - {Tag}: {ex.Message}");
             }
         }
-
-
-        //public bool IsColliding(Sprite2D a, Sprite2D b)
-        //{
-        //    if (a.Position.X < b.Position.X + b.Scale.X &&
-        //        a.Position.X + a.Scale.X > b.Position.X &&
-        //        a.Position.Y < b.Position.Y + b.Scale.Y &&
-        //        a.Position.Y + a.Scale.Y > b.Position.Y)
-        //    {
-        //        return true;
-        //    }
-
-        //    return false;
-        //}
-
-        //public bool IsColliding(string tag)
-        //{
-        //    foreach(Sprite2D b in EEngine.AllSprites)
-        //    {
-        //        if(b.Tag == tag)
-        //        {
-        //            if (Position.X < b.Position.X + b.Scale.X &&
-        //                Position.X + Scale.X > b.Position.X &&
-        //                Position.Y < b.Position.Y + b.Scale.Y &&
-        //                Position.Y + Scale.Y > b.Position.Y)
-        //            {
-        //                return true;
-        //            }
-        //        }
-        //    }
-
-        //    return false;
-        //}
 
         //public void DestroySelf()
         //{

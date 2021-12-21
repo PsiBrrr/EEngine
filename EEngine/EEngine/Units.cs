@@ -198,7 +198,7 @@ namespace EEngine.EEngine
                             int NextSubGroup = 0;
                             if (child.NextSibling != null) { NextSubGroup = int.Parse(child.NextSibling.ChildNodes.Item(5).InnerText.Trim()); }
 
-                            Rectangle Section = new Rectangle(new Point(int.Parse(StrPoint[0]), int.Parse(StrPoint[1])), new Size(int.Parse(StrSize[0]), int.Parse(StrSize[0])));
+                            Rectangle Section = new Rectangle(new Point(int.Parse(StrPoint[0]), int.Parse(StrPoint[1])), new Size(int.Parse(StrSize[0]), int.Parse(StrSize[1])));
 
                             Sections.Add(Section);
                             Tags.Add(AnimationTag + "_" + j++);

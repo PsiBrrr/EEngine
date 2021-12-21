@@ -8,6 +8,7 @@ namespace EEngine.EEngine
 {
     public class Armies
     {
+        public Vector2 StartPosition = Vector2.Zero();
         public Vector2 Position = Vector2.Zero();
         public Vector2 Scale = Vector2.Zero();
         public Units Unit = null;
@@ -71,7 +72,6 @@ namespace EEngine.EEngine
                 return false;
             }
         }
-
         public bool ArmyUnitMoveY(Vector2 TargetPosition, float Speed)
         {
             if (TargetPosition.Y < Position.Y)
@@ -95,6 +95,8 @@ namespace EEngine.EEngine
                 return false;
             }
         }
+
+
 
         public void DestroySelf()
         {

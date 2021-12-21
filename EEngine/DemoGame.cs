@@ -14,6 +14,7 @@ namespace EEngine
     class DemoGame : EEngine.EEngine
     {
         Image tileSpriteSheet;
+        Image buildingSpriteSheet;
         Image playerSpriteSheet;
         Image effectSpriteSheet;
         readonly float Scale = 4f;
@@ -34,6 +35,7 @@ namespace EEngine
         //bool num6;
 
         readonly XmlDocument tileDoc = new XmlDocument();
+        readonly XmlDocument buildingDoc = new XmlDocument();
         readonly XmlDocument unitDoc = new XmlDocument();
         readonly XmlDocument effectDoc = new XmlDocument();
 
@@ -61,9 +63,11 @@ namespace EEngine
             try
             {
                 tileSpriteSheet = Image.FromFile("Assets/Sprites/Tiles/Advance Wars 2 - Modified Tiles.png");
+                buildingSpriteSheet = Image.FromFile("Assets/Sprites/Tiles/Advance Wars 2 - Modified Buildings.png");
                 playerSpriteSheet = Image.FromFile("Assets/Sprites/Units/Advance Wars 2 - Modified.png");
                 effectSpriteSheet = Image.FromFile("Assets/Sprites/Effects/Advance Wars 2 - Modified Effects.png");
                 tileDoc.Load("Assets/Sprites/Tiles/Tiles.xml");
+                buildingDoc.Load("Assets/Sprites/Tiles/Structures.xml");
                 unitDoc.Load("Assets/Sprites/Units/Units.xml"); 
                 effectDoc.Load("Assets/Sprites/Effects/Effects.xml");
             }
@@ -81,12 +85,15 @@ namespace EEngine
             }
 
             new Tiles(tileSpriteSheet, tileDoc);
+            new Buildings(buildingSpriteSheet, buildingDoc);
             new Units(playerSpriteSheet, unitDoc);
             new Effects(effectSpriteSheet, effectDoc);
 
 
             CreateMap(Scale, Map);
             //SetLevelTileFog();
+
+            CreateBuilding(new Vector2(200, 100), Scale, 0);
 
             //CreateArmyUnit(new Vector2(300, 200), new Vector2(48, 48), 1, new Vector2(0, 0)); //Manual scale set of army unit
             CreateArmyUnit(new Vector2(294, 216), Scale, 0, new Vector2(0, 0));

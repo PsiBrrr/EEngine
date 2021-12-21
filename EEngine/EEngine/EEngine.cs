@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Threading;
-using System.Drawing.Drawing2D;
 using System.Threading.Tasks;
 
 namespace EEngine.EEngine
@@ -31,7 +31,8 @@ namespace EEngine.EEngine
         private static List<Units> AllUnits = new List<Units>();
         private static List<Armies> Armies = new List<Armies>();
         private static List<Tiles> AllTiles = new List<Tiles>();
-        //private static List<Buildings> AllBuildings = new List<Buildings>();
+        private static List<Buildings> AllBuildings = new List<Buildings>();
+        private static List<Buildings> ABuilding = new List<Buildings>();
         private static List<List<Map>> Map = new List<List<Map>>();
         private static List<Effects> AllEffects = new List<Effects>();
 
@@ -140,20 +141,6 @@ namespace EEngine.EEngine
             else { return null; }
         }
 
-        public static void RegisterEffect(Effects Effect)
-        {
-            AllEffects.Add(Effect);
-        }
-        public static void UnRegisterEffect(Effects Effect)
-        {
-            AllEffects.Remove(Effect);
-        }
-        public static Effects GetEffect(int Index)
-        {
-            if (AllUnits.ElementAtOrDefault(Index) != null) { return AllEffects[Index]; }
-            else { return null; }
-        }
-
         public static void RegisterArmy(Armies Army)
         {
             Armies.Add(Army);
@@ -212,15 +199,42 @@ namespace EEngine.EEngine
         }*/
 
 
+        public static void RegisterEffect(Effects Effect)
+        {
+            AllEffects.Add(Effect);
+        }
+        public static void UnRegisterEffect(Effects Effect)
+        {
+            AllEffects.Remove(Effect);
+        }
+        public static Effects GetEffect(int Index)
+        {
+            if (AllUnits.ElementAtOrDefault(Index) != null) { return AllEffects[Index]; }
+            else { return null; }
+        }
 
-        //public static void RegisterBuilding(Buildings Building)
-        //{
-        //    AllBuildings.Add(Building);
-        //}
-        //public static void UnRegisterBuilding(Buildings Building)
-        //{
-        //    AllBuildings.Remove(Building);
-        //}
+
+        public static void RegisterBuilding(Buildings Building)
+        {
+            AllBuildings.Add(Building);
+        }
+        public static void RegisterABuilding(Buildings Building)
+        {
+            ABuilding.Add(Building);
+        }
+        public static void UnRegisterBuilding(Buildings Building)
+        {
+            AllBuildings.Remove(Building);
+        }
+        public static Buildings GetBuilding(int Index)
+        {
+            return AllBuildings[Index];
+        }
+        public static void CreateBuilding(Vector2 Position, float Scale, int Index)
+        {
+            new Buildings(Position, Scale, GetBuilding(Index), 0, true);
+        }
+
 
         public static void RegisterTile(Tiles Tile)
         {
@@ -360,18 +374,18 @@ namespace EEngine.EEngine
             }
         }
 
-        //private void FrameBuilding(int Timer)
-        //{
-        //    if (Timer == TimerLimits)
-        //    {
-        //        foreach (Buildings building in AllBuildings)
-        //        {
-        //            //if (building.Building_Sprite[building.AnimationSet].Sprite.Count > 1) { building.Building_Frame++; }
-        //            //if (building.Building_Frame == building.Building_Sprite[building.AnimationSet].Sprite.Count) { building.Building_Frame = 0; }
+        private void FrameBuilding(int Timer)
+        {
+            if (Timer == TimerLimits)
+            {
+                foreach (Buildings building in ABuilding)
+                {
+                    if (building.Building_Sprite[building.AnimationSet].Sprite.Count > 1) { building.Frame++; }
+                    if (building.Frame == building.Building_Sprite[building.AnimationSet].Sprite.Count) { building.Frame = 0; }
 
-        //        }
-        //    }
-        //}
+                }
+            }
+        }
 
         private void FrameUnit(int Timer)
         {
@@ -451,15 +465,17 @@ namespace EEngine.EEngine
                     }
                 }
 
-                //FrameBuilding(Timers);
-                //foreach (Buildings building in AllBuildings.ToList())
-                //{
-                //    g.DrawImage(building.Building_Sprite[building.AnimationSet].Sprite[building.Building_Frame].Sprite,
-                //    building.Building_Position.X,
-                //    building.Building_Position.Y,
-                //    building.Building_Scale.X,
-                //    building.Building_Scale.Y);
-                //}
+
+                FrameBuilding(Timers);
+                foreach (Buildings building in ABuilding.ToList())
+                {
+                    g.DrawImage(building.Building_Sprite[building.AnimationSet].Sprite[building.Frame].Sprite,
+                    building.Position.X,
+                    building.Position.Y,
+                    building.vScale.X,
+                    building.vScale.Y);
+                }
+
 
                 FrameUnit(Timers);
                 foreach (Armies army in Armies.ToList())
@@ -482,12 +498,11 @@ namespace EEngine.EEngine
                         army.Unit.Supply_Effect.Scale.X,
                         army.Unit.Supply_Effect.Scale.Y);
                 }
-                g.DrawString("Butts", new Font("Arial", 16), new SolidBrush(Color.White), new PointF(0f - GetCameraPosition().X, 0f - GetCameraPosition().Y));
+                g.DrawString("Test Text", new Font("Arial", 16), new SolidBrush(Color.White), new PointF(0f - GetCameraPosition().X, 0f - GetCameraPosition().Y));
             }
 
             Timers++;
             if (Timers > TimerLimits) { Timers = 0; }
-
         }
 
 

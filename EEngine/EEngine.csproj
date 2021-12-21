@@ -71,6 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DemoGame.cs" />
+    <Compile Include="EEngine\Buildings.cs" />
+    <Compile Include="EEngine\Movement_Arrows.cs" />
     <Compile Include="EEngine\Sprites\AnimatedSprite2D.cs" />
     <Compile Include="EEngine\Armies.cs" />
     <Compile Include="EEngine\Between.cs" />
