@@ -143,7 +143,7 @@ namespace EEngine.EEngine
         public static void SetArmyUnit(Units Unit, bool Active)
         {
             int Index = Armies.FindIndex(x => x.Unit.ID == Unit.ID);
-            Armies[Index].Unit.Active = Active;
+            Armies[Index].Unit.Available = Active;
             Armies[Index].Unit.UnavailableIdle();
         }
 
@@ -494,19 +494,22 @@ namespace EEngine.EEngine
                         army.Unit.vScale.X,
                         army.Unit.vScale.Y);
                     //Unit Effect (Health, Ammo, Fuel)
-                    g.DrawImage(army.Unit.Health_Effect.EffectElement.Sprite[army.Unit.GetUnitHeath()].Sprite,
+                    g.DrawImage(army.Unit.Health_Effect.Effect_Sprite[army.Unit.Health_Effect.AnimationSet].Sprite[army.Unit.GetUnitHeath()].Sprite,
                         army.Unit.GetUnitHealthEffect(army.Unit.CalculateUnitOffsetPosition()).X,
                         army.Unit.GetUnitHealthEffect(army.Unit.CalculateUnitOffsetPosition()).Y,
                         army.Unit.Health_Effect.Scale.X,
                         army.Unit.Health_Effect.Scale.Y);
-                    g.DrawImage(army.Unit.Supply_Effect.EffectElement.Sprite[army.Unit.GetUnitSupply()].Sprite,
+                    g.DrawImage(army.Unit.Supply_Effect.Effect_Sprite[army.Unit.Supply_Effect.AnimationSet].Sprite[army.Unit.GetUnitSupply()].Sprite,
                         army.Unit.GetUnitSupplyEffect(army.Unit.CalculateUnitOffsetPosition()).X,
                         army.Unit.GetUnitSupplyEffect(army.Unit.CalculateUnitOffsetPosition()).Y,
                         army.Unit.Supply_Effect.Scale.X,
                         army.Unit.Supply_Effect.Scale.Y);
                 }
                 g.DrawString("Test Text", new Font("Arial", 16), new SolidBrush(Color.White), new PointF(0f - GetCameraPosition().X, 0f - GetCameraPosition().Y));
+
             }
+
+
 
             Timers++;
             if (Timers > TimerLimits) { Timers = 0; }

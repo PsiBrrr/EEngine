@@ -1,34 +1,31 @@
-<Effects>
-	<Effect><Position>104,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
-    <Effect><Position>32,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
-	<Effect><Position>40,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
-	<Effect><Position>48,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
-	<Effect><Position>56,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
-	<Effect><Position>64,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
-	<Effect><Position>72,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
-	<Effect><Position>80,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
-	<Effect><Position>88,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
-	<Effect><Position>96,	8</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
-	<Effect><Position>0,	0</Position>	<Size>8,	8</Size>	<Tag>Health_Icon</Tag>			<ShortTag>hi</ShortTag>		<Group>1</Group></Effect>
-    
-    <Effect><Position>224,  8</Position>    <Size>8,    8</Size>    <Tag>Supply_Icon</Tag>          <ShortTag>si</ShortTag>     <Group>2</Group></Effect>
-    <Effect><Position>232,  8</Position>    <Size>8,    8</Size>    <Tag>Supply_Icon</Tag>          <ShortTag>si</ShortTag>     <Group>2</Group></Effect>
-    <Effect><Position>0,	0</Position>	<Size>8,	8</Size>	<Tag>Supply_Icon</Tag>			<ShortTag>si</ShortTag>		<Group>2</Group></Effect>
-	
-	<Effect><Position>0,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Left_Up</Tag>		<ShortTag>alu</ShortTag>	<Group>3</Group></Effect>
-	<Effect><Position>16,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Right_Up</Tag>		<ShortTag>aru</ShortTag>	<Group>3</Group></Effect>
-	<Effect><Position>32,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Left_Down</Tag>		<ShortTag>ald</ShortTag>	<Group>3</Group></Effect>
-	<Effect><Position>48,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Right_Down</Tag>		<ShortTag>ard</ShortTag>	<Group>3</Group></Effect>
-	<Effect><Position>64,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Head_Down</Tag>		<ShortTag>ahd</ShortTag>	<Group>3</Group></Effect>
-	<Effect><Position>80,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_Center_Down</Tag>	<ShortTag>acd</ShortTag>	<Group>3</Group></Effect>
-	<Effect><Position>96,	48</Position>	<Size>16,	16</Size>	<Tag>Arrow_End_Down</Tag>		<ShortTag>aed</ShortTag>	<Group>3</Group></Effect>
-	
-	<Effect><Position>0,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>24,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>48,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>72,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>96,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>120,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>144,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-	<Effect><Position>168,	64</Position>	<Size>24,	24</Size>	<Tag>Unit_Destroyed_Land</Tag>	<ShortTag>udl</ShortTag>	<Group>99</Group></Effect>
-</Effects>
+<Special>
+	<Effects Tag='Health Icons'>
+		<Effect><Position>104,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Health_Icon</AnimationTag>					<ShortTag>hi</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>32,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Health_Icon</AnimationTag>					<ShortTag>hi</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>40,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Health_Icon</AnimationTag>					<ShortTag>hi</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>48,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Health_Icon</AnimationTag>					<ShortTag>hi</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>56,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Health_Icon</AnimationTag>					<ShortTag>hi</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>64,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Health_Icon</AnimationTag>					<ShortTag>hi</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>72,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Health_Icon</AnimationTag>					<ShortTag>hi</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>80,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Health_Icon</AnimationTag>					<ShortTag>hi</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>88,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Health_Icon</AnimationTag>					<ShortTag>hi</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>96,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Health_Icon</AnimationTag>					<ShortTag>hi</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>240,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Health_Icon</AnimationTag>					<ShortTag>hi</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>216,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Unavailiable_Health_Icon</AnimationTag>		<ShortTag>uhi</ShortTag>		<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Effect>
+		<Effect><Position>144,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Unavailiable_Health_Icon</AnimationTag>		<ShortTag>uhi</ShortTag>		<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Effect>
+		<Effect><Position>152,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Unavailiable_Health_Icon</AnimationTag>		<ShortTag>uhi</ShortTag>		<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Effect>
+		<Effect><Position>160,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Unavailiable_Health_Icon</AnimationTag>		<ShortTag>uhi</ShortTag>		<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Effect>
+		<Effect><Position>168,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Unavailiable_Health_Icon</AnimationTag>		<ShortTag>uhi</ShortTag>		<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Effect>
+		<Effect><Position>176,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Unavailiable_Health_Icon</AnimationTag>		<ShortTag>uhi</ShortTag>		<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Effect>
+		<Effect><Position>184,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Unavailiable_Health_Icon</AnimationTag>		<ShortTag>uhi</ShortTag>		<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Effect>
+		<Effect><Position>192,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Unavailiable_Health_Icon</AnimationTag>		<ShortTag>uhi</ShortTag>		<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Effect>
+		<Effect><Position>200,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Unavailiable_Health_Icon</AnimationTag>		<ShortTag>uhi</ShortTag>		<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Effect>
+		<Effect><Position>208,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Unavailiable_Health_Icon</AnimationTag>		<ShortTag>uhi</ShortTag>		<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Effect>
+		<Effect><Position>240,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Unavailiable_Health_Icon</AnimationTag>		<ShortTag>uhi</ShortTag>		<ImageFlip>false</ImageFlip>	<SubGroup>2</SubGroup></Effect>
+	</Effects>
+	<Effects Tag='Supply Icons'>
+	    <Effect><Position>224,  0</Position>    <Size>8,    8</Size>    <AnimationTag>Supply_Icon</AnimationTag>          			<ShortTag>si</ShortTag>     	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>232,  0</Position>    <Size>8,    8</Size>    <AnimationTag>Supply_Icon</AnimationTag>          			<ShortTag>si</ShortTag>     	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+		<Effect><Position>240,	0</Position>	<Size>8,	8</Size>	<AnimationTag>Supply_Icon</AnimationTag>					<ShortTag>si</ShortTag>			<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Effect>
+	</Effects>
+</Special>

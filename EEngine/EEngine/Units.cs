@@ -15,7 +15,7 @@ namespace EEngine.EEngine
         public Effects Health_Effect = null;
         public Effects Supply_Effect = null;
         public int Frame = 0;
-        public bool Active = true;
+        public bool Available = true;
         public string Tag = "";
         public string ShortTag = "";
 
@@ -41,7 +41,7 @@ namespace EEngine.EEngine
         public int AnimationSet { get; private set; } = (int)Animations.Idle;
 
 
-        public Units(Vector2 Position, Vector2 vScale, Units Unit, int Frame, Effects HealthEffect, Effects SupplyEffect, bool Register)
+        public Units(Vector2 Position, Vector2 vScale, Units Unit, int Frame, Effects Health_Effect, Effects Supply_Effect, bool Register)
         {
             ID = Guid.NewGuid();
             this.Position = Position;
@@ -54,18 +54,8 @@ namespace EEngine.EEngine
             this.Fuel = Unit.Fuel;
             this.ShortTag = Unit.ShortTag;
 
-            this.Health_Effect = new Effects(GetUnitHealthEffect(Position),
-                HealthEffect.Scale * fScale,
-                HealthEffect.EffectElement,
-                HealthEffect.Tag,
-                HealthEffect.ShortTag,
-                false);
-            this.Supply_Effect = new Effects(GetUnitSupplyEffect(Position),
-                SupplyEffect.Scale * fScale,
-                SupplyEffect.EffectElement,
-                SupplyEffect.Tag,
-                SupplyEffect.ShortTag,
-                false);
+            this.Health_Effect = new Effects(GetUnitHealthEffect(Position), Health_Effect.Scale * fScale, Health_Effect, Health_Effect.Tag, Health_Effect.ShortTag, false);
+            this.Supply_Effect = new Effects(GetUnitSupplyEffect(Position), Supply_Effect.Scale * fScale, Supply_Effect, Supply_Effect.Tag, Supply_Effect.ShortTag, false);
 
             if (Register)
             {
@@ -73,7 +63,7 @@ namespace EEngine.EEngine
                 Log.Info($"[UNITS]({Tag}) - Has been registered!");
             }
         }
-        public Units(Vector2 Position, float fScale, Units Unit, int Frame, Effects HealthEffect, Effects SupplyEffect, bool Register)
+        public Units(Vector2 Position, float fScale, Units Unit, int Frame, Effects Health_Effect, Effects Supply_Effect, bool Register)
         {
             ID = Guid.NewGuid();
             this.Position = Position;
@@ -86,18 +76,8 @@ namespace EEngine.EEngine
             this.Fuel = Unit.Fuel;
             this.ShortTag = Unit.ShortTag;
 
-            this.Health_Effect = new Effects(GetUnitHealthEffect(Position),
-                HealthEffect.Scale * fScale,
-                HealthEffect.EffectElement,
-                HealthEffect.Tag,
-                HealthEffect.ShortTag,
-                false);
-            this.Supply_Effect = new Effects(GetUnitSupplyEffect(Position),
-                SupplyEffect.Scale * fScale,
-                SupplyEffect.EffectElement,
-                SupplyEffect.Tag,
-                SupplyEffect.ShortTag,
-                false);
+            this.Health_Effect = new Effects(GetUnitHealthEffect(Position), Health_Effect.Scale * fScale, Health_Effect, Health_Effect.Tag, Health_Effect.ShortTag, false);
+            this.Supply_Effect = new Effects(GetUnitSupplyEffect(Position), Supply_Effect.Scale * fScale, Supply_Effect, Supply_Effect.Tag, Supply_Effect.ShortTag, false);
 
             if (Register)
             {
@@ -107,14 +87,14 @@ namespace EEngine.EEngine
         }
 
 
-        /// Create a new Unit from multiple AnimatedSprite2Ds, use this when you have animations for multiple directions
+        /// Create a new Unit from multiple AnimatedSprite2Ds
         /// </summary>
-        /// <param name="Section">List of a List of Rectangles. Each inner list is used to create an AnimatedSprite2D from multiple Sprite2Ds</param>
-        /// <param name="Image">Sprite Sheet</param>
+        /// <param name="Section">  List of a List of Rectangles. Each inner list is used to create an AnimatedSprite2D from multiple Sprite2Ds</param>
+        /// <param name="Image">    Sprite Sheet</param>
         /// <param name="SpriteTag">List of a List of Strings. Each inner list is a unique Tag assigned to a Sprite2D</param>
-        /// <param name="Flip">Boolean. Should these images be flipped</param>
-        /// <param name="Tag">Unique Tag</param>
-        /// <param name="ShortTag">Short hand unique Tag</param>
+        /// <param name="Flip">     bool. Should these images be flipped</param>
+        /// <param name="Tag">      string. Unique Tag</param>
+        /// <param name="ShortTag"> string. Short hand Unique Tag</param>
         public Units(List<List<Rectangle>> Section, Image Image, List<List<string>> SpriteTag, List<bool> Flip, string Tag, float Ammo, float Cost, float Fuel, string ShortTag)
         {
             List<Sprite2D> Sprites = new List<Sprite2D>();
@@ -157,7 +137,7 @@ namespace EEngine.EEngine
             {
                 try
                 {
-                    string Unit_Tag = node.Attributes.GetNamedItem("Unit_Tag").InnerText;
+                    string Unit_Tag = node.Attributes.GetNamedItem("Tag").InnerText;
                     float Unit_Ammo = 0f;
                     float Unit_Cost = float.Parse(node.Attributes.GetNamedItem("Unit_Cost").InnerText);
                     float Unit_Fuel = float.Parse(node.Attributes.GetNamedItem("Unit_Fuel").InnerText);
@@ -218,6 +198,17 @@ namespace EEngine.EEngine
         public void Left() { AnimationSet = (int)Animations.Active_Left; }
         public void Right() { AnimationSet = (int)Animations.Active_Right; }
         public void UnavailableIdle() { AnimationSet = (int)Animations.Unavailable_Idle; }
+
+
+
+
+
+
+
+
+
+
+
 
 
         /// <summary>

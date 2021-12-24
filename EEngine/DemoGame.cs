@@ -224,10 +224,10 @@ namespace EEngine
                 {
                     TargetPosition = TempMap.Position;
                     Log.Info2(TargetPosition);
-                    if (SelectedUnit != null) { if (SelectedUnit.Unit.Active) { click = true; } }
+                    if (SelectedUnit != null) { if (SelectedUnit.Unit.Available) { click = true; } }
                 }
 
-                if (TempUnit != null && TempUnit.Unit.Active)
+                if (TempUnit != null && TempUnit.Unit.Available)
                 {
                     SelectedUnit = TempUnit;
                     Log.Info2(SelectedUnit.Unit.Tag);
