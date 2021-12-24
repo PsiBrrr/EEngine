@@ -1,6 +1,8 @@
 <Structures>
 	<Buildings Building_Tag ='Orange HQ'>
-		<Building><Position>0,		0</Position>	<Size>16,32</Size>	<AnimationTag>Orange_HQ</AnimationTag>	<ShortTag>ohq</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Building>
-		<Building><Position>160,	0</Position>	<Size>16,32</Size>	<AnimationTag>Orange_HQ</AnimationTag>	<ShortTag>ohq</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Building>
+		<Building><Position>0,		336</Position>	<Size>16,32</Size>	<AnimationTag>Orange_HQ</AnimationTag>	<ShortTag>ohq</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Building>
+		<Building><Position>0,		336</Position>	<Size>16,32</Size>	<AnimationTag>Orange_HQ</AnimationTag>	<ShortTag>ohq</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Building>
+		<Building><Position>0,		336</Position>	<Size>16,32</Size>	<AnimationTag>Orange_HQ</AnimationTag>	<ShortTag>ohq</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Building>
+		<Building><Position>160,	336</Position>	<Size>16,32</Size>	<AnimationTag>Orange_HQ</AnimationTag>	<ShortTag>ohq</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Building>
 	</Buildings>
 </Structures>

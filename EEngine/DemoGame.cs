@@ -14,7 +14,6 @@ namespace EEngine
     class DemoGame : EEngine.EEngine
     {
         Image tileSpriteSheet;
-        Image buildingSpriteSheet;
         Image playerSpriteSheet;
         Image effectSpriteSheet;
         readonly float Scale = 4f;
@@ -29,7 +28,7 @@ namespace EEngine
         bool click;
         bool num1;
         bool num2;
-        //bool num3;
+        bool num3;
         //bool num4;
         //bool num5;
         //bool num6;
@@ -63,7 +62,6 @@ namespace EEngine
             try
             {
                 tileSpriteSheet = Image.FromFile("Assets/Sprites/Tiles/Advance Wars 2 - Modified Tiles.png");
-                buildingSpriteSheet = Image.FromFile("Assets/Sprites/Tiles/Advance Wars 2 - Modified Buildings.png");
                 playerSpriteSheet = Image.FromFile("Assets/Sprites/Units/Advance Wars 2 - Modified.png");
                 effectSpriteSheet = Image.FromFile("Assets/Sprites/Effects/Advance Wars 2 - Modified Effects.png");
                 tileDoc.Load("Assets/Sprites/Tiles/Tiles.xml");
@@ -85,7 +83,7 @@ namespace EEngine
             }
 
             new Tiles(tileSpriteSheet, tileDoc);
-            new Buildings(buildingSpriteSheet, buildingDoc);
+            new Buildings(tileSpriteSheet, buildingDoc);
             new Units(playerSpriteSheet, unitDoc);
             new Effects(effectSpriteSheet, effectDoc);
 
@@ -93,7 +91,7 @@ namespace EEngine
             CreateMap(Scale, Map);
             //SetLevelTileFog();
 
-            CreateBuilding(new Vector2(200, 100), Scale, 0);
+            CreateBuilding(new Vector2(230, 344), Scale, 0);
 
             //CreateArmyUnit(new Vector2(300, 200), new Vector2(48, 48), 1, new Vector2(0, 0)); //Manual scale set of army unit
             CreateArmyUnit(new Vector2(294, 216), Scale, 0, new Vector2(0, 0));
@@ -122,6 +120,15 @@ namespace EEngine
             if(num2 && i == 0)
             {
                 SetMapTileFogVision(new Vector2(3, 3), 3);
+
+                i++;
+            }
+            if(num3 && i ==0)
+            {
+                if(SelectedUnit != null)
+                {
+                    SetArmyUnit(SelectedUnit.Unit, false);
+                }
 
                 i++;
             }
@@ -189,6 +196,7 @@ namespace EEngine
             if (e.KeyCode == Keys.Tab) { tab = true; }
             if (e.KeyCode == Keys.NumPad1) { num1 = true; }
             if (e.KeyCode == Keys.NumPad2) { num2 = true; }
+            if (e.KeyCode == Keys.NumPad3) { num3 = true; }
         }
         public override void GetKeyUp(KeyEventArgs e)
         {
@@ -200,6 +208,7 @@ namespace EEngine
             if (e.KeyCode == Keys.Tab) { tab = false; }
             if (e.KeyCode == Keys.NumPad1) { num1 = false; }
             if (e.KeyCode == Keys.NumPad2) { num2 = false; }
+            if (e.KeyCode == Keys.NumPad3) { num3 = false; }
         }
 
         public override void GetMouseDown(MouseEventArgs e)
@@ -215,10 +224,10 @@ namespace EEngine
                 {
                     TargetPosition = TempMap.Position;
                     Log.Info2(TargetPosition);
-                    if (SelectedUnit != null) { click = true; }
+                    if (SelectedUnit != null) { if (SelectedUnit.Unit.Active) { click = true; } }
                 }
 
-                if (TempUnit != null)
+                if (TempUnit != null && TempUnit.Unit.Active)
                 {
                     SelectedUnit = TempUnit;
                     Log.Info2(SelectedUnit.Unit.Tag);

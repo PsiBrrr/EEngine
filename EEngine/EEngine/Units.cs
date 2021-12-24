@@ -7,15 +7,19 @@ namespace EEngine.EEngine
 {
     public class Units
     {
+        public Guid ID { get; private set; }
         public Vector2 Position = Vector2.Zero();
         public Vector2 vScale = Vector2.Zero();
         private float fScale = 1f;
         public List<AnimatedSprite2D> Unit_Sprite = new List<AnimatedSprite2D>();
-        public int Frame = 0;
         public Effects Health_Effect = null;
         public Effects Supply_Effect = null;
+        public int Frame = 0;
+        public bool Active = true;
+        public string Tag = "";
+        public string ShortTag = "";
 
-
+        //Hard set buffer area around Unit Sprite
         private readonly float SpriteTopBuffer = 8f;
         private readonly float SpriteLeftBuffer = 4f;
         private readonly float SpriteRightBuffer = 4f;
@@ -31,15 +35,15 @@ namespace EEngine.EEngine
         private float Movement = 0f;
         private float Vision = 0f;
 
-        public string Tag = "";
-        public string ShortTag = "";
 
-        private enum Animations { Idle, Active_Up, Active_Down, Active_Left, Active_Right, Unavailable_Left, Unavailable_Right };
+
+        private enum Animations { Idle, Active_Up, Active_Down, Active_Left, Active_Right, Unavailable_Idle };
         public int AnimationSet { get; private set; } = (int)Animations.Idle;
 
 
         public Units(Vector2 Position, Vector2 vScale, Units Unit, int Frame, Effects HealthEffect, Effects SupplyEffect, bool Register)
         {
+            ID = Guid.NewGuid();
             this.Position = Position;
             //this.Bounding_Position = CalculateUnitBoundingPosition(Position, Scale);
             this.vScale = vScale;
@@ -71,6 +75,7 @@ namespace EEngine.EEngine
         }
         public Units(Vector2 Position, float fScale, Units Unit, int Frame, Effects HealthEffect, Effects SupplyEffect, bool Register)
         {
+            ID = Guid.NewGuid();
             this.Position = Position;
             this.fScale = fScale;
             this.vScale = Unit.Unit_Sprite[0].Scale * this.fScale;
@@ -102,34 +107,6 @@ namespace EEngine.EEngine
         }
 
 
-        /// <summary>
-        /// Create a new Unit from a AnimatedSprite2Ds 
-        /// </summary>
-        /// <param name="Section">List of Rectangles. Is used to create an AnimatedSprite2D from multiple Sprite2Ds</param>
-        /// <param name="Image">Sprite Sheet</param>
-        /// <param name="SpriteTag">List of Strings. Is a unique Tag assigned to a Sprite2D</param>
-        /// <param name="Tag">Unique Tag</param>
-        /// <param name="ShortTag">Short hand unique Tag</param>
-        public Units(List<Rectangle> Section, Image Image, List<string> SpriteTag, bool Flip, string Tag, float Ammo, float Cost, float Fuel, string ShortTag)
-        {
-            List<Sprite2D> Sprites = new List<Sprite2D>();
-
-            for (int i = 0; i < Section.Count; i++)
-            {
-                if (Flip) { Sprites.Add(new Sprite2D(Section[i], Image, RotateFlipType.RotateNoneFlipX, SpriteTag[i], true)); }
-                else { Sprites.Add(new Sprite2D(Section[i], Image, SpriteTag[i], true)); }
-            }
-
-            this.Unit_Sprite.Add(new AnimatedSprite2D(Sprites, Tag));
-            this.Tag = Tag;
-            this.Ammo = Ammo;
-            this.Cost = Cost;
-            this.Fuel = Fuel;
-            this.ShortTag = ShortTag;
-
-            EEngine.RegisterUnit(this);
-            Log.Info($"[UNITS]({Tag}) - Has been registered!");
-        }
         /// Create a new Unit from multiple AnimatedSprite2Ds, use this when you have animations for multiple directions
         /// </summary>
         /// <param name="Section">List of a List of Rectangles. Each inner list is used to create an AnimatedSprite2D from multiple Sprite2Ds</param>
@@ -240,8 +217,7 @@ namespace EEngine.EEngine
         public void Down() { AnimationSet = (int)Animations.Active_Down; }
         public void Left() { AnimationSet = (int)Animations.Active_Left; }
         public void Right() { AnimationSet = (int)Animations.Active_Right; }
-        public void UnavailableLeft() { AnimationSet = (int)Animations.Unavailable_Left; }
-        public void UnavailableRight() { AnimationSet = (int)Animations.Unavailable_Right; }
+        public void UnavailableIdle() { AnimationSet = (int)Animations.Unavailable_Idle; }
 
 
         /// <summary>

@@ -140,6 +140,15 @@ namespace EEngine.EEngine
             if (AllUnits.ElementAtOrDefault(Index) != null) { return AllUnits[Index]; }
             else { return null; }
         }
+        public static void SetArmyUnit(Units Unit, bool Active)
+        {
+            int Index = Armies.FindIndex(x => x.Unit.ID == Unit.ID);
+            Armies[Index].Unit.Active = Active;
+            Armies[Index].Unit.UnavailableIdle();
+        }
+
+
+
 
         public static void RegisterArmy(Armies Army)
         {
@@ -373,7 +382,6 @@ namespace EEngine.EEngine
                 }
             }
         }
-
         private void FrameBuilding(int Timer)
         {
             if (Timer == TimerLimits)
@@ -386,7 +394,6 @@ namespace EEngine.EEngine
                 }
             }
         }
-
         private void FrameUnit(int Timer)
         {
             if (Timer == TimerLimits)
