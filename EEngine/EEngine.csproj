@@ -88,8 +88,8 @@
     <Compile Include="EEngine\Units.cs" />
     <Compile Include="EEngine\Vector2.cs" />
     <Compile Include="EEngine\Vector3.cs" />
-    <Compile Include="PathFinding\PathFinding.cs" />
-    <Compile Include="PathFinding\PathNode.cs" />
+    <Compile Include="EEngine\PathFinding\PathFinding.cs" />
+    <Compile Include="EEngine\PathFinding\PathNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

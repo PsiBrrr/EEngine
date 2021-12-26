@@ -20,10 +20,10 @@
 		<Unit><Position>96, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Right</AnimationTag>				<ShortTag>oirr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
 		<Unit><Position>120, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Right</AnimationTag>				<ShortTag>oirr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
 		<Unit><Position>96, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Run_Right</AnimationTag>				<ShortTag>oirr</ShortTag>	<ImageFlip>true</ImageFlip>		<SubGroup>5</SubGroup></Unit>
-		<Unit><Position>288, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable_Left</AnimationTag>		<ShortTag>oiul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
-		<Unit><Position>312, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable_Left</AnimationTag>		<ShortTag>oiul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
-		<Unit><Position>336, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable_Left</AnimationTag>		<ShortTag>oiul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
-		<Unit><Position>312, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable_Left</AnimationTag>		<ShortTag>oiul</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>288, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable</AnimationTag>			<ShortTag>oiu</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>312, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable</AnimationTag>			<ShortTag>oiu</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>336, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable</AnimationTag>			<ShortTag>oiu</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
+		<Unit><Position>312, 	0</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Infantry_Unavailable</AnimationTag>			<ShortTag>oiu</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>6</SubGroup></Unit>
 	</Units>
 	<Units Tag ='Orange Mech' Unit_Ammo ='3' Unit_Cost ='3000' Unit_Fuel ='70'>
 		<Unit><Position>0,		24</Position>	<Size>24,24</Size>	<AnimationTag>Orange_Mech_Idle</AnimationTag>					<ShortTag>omi</ShortTag>	<ImageFlip>false</ImageFlip>	<SubGroup>1</SubGroup></Unit>

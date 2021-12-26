@@ -37,7 +37,7 @@ namespace EEngine.EEngine
 
 
 
-        private enum Animations { Idle, Active_Up, Active_Down, Active_Left, Active_Right, Unavailable_Idle };
+        private enum Animations { Idle, Available_Up, Available_Down, Available_Left, Available_Right, UnAvailable_Idle };
         public int AnimationSet { get; private set; } = (int)Animations.Idle;
 
 
@@ -193,33 +193,22 @@ namespace EEngine.EEngine
 
 
         public void Idle() { AnimationSet = (int)Animations.Idle; }
-        public void Up() { AnimationSet = (int)Animations.Active_Up; }
-        public void Down() { AnimationSet = (int)Animations.Active_Down; }
-        public void Left() { AnimationSet = (int)Animations.Active_Left; }
-        public void Right() { AnimationSet = (int)Animations.Active_Right; }
-        public void UnavailableIdle() { AnimationSet = (int)Animations.Unavailable_Idle; }
-
-
-
-
-
-
-
-
-
-
-
+        public void Up() { AnimationSet = (int)Animations.Available_Up; }
+        public void Down() { AnimationSet = (int)Animations.Available_Down; }
+        public void Left() { AnimationSet = (int)Animations.Available_Left; }
+        public void Right() { AnimationSet = (int)Animations.Available_Right; }
+        public void UnavailableIdle() { AnimationSet = (int)Animations.UnAvailable_Idle; }
 
 
         /// <summary>
         /// Finds upper corner of Unit. Unit may not actually start where the corner of the Sprite is due to sprite size being larger.
         /// </summary>
         /// <returns></returns>
-        public Vector2 CalculateUnitUpperBoundingPosition()
+        public Vector2 GetUnitUpperBoundingPosition()
         {
             Vector2 Bounding_Position = Vector2.Zero();
-            Bounding_Position.X += CalculateUnitOffsetPosition().X + (SpriteLeftBuffer * fScale);
-            Bounding_Position.Y += CalculateUnitOffsetPosition().Y + (SpriteTopBuffer * fScale);
+            Bounding_Position.X += CalculateUnitOffsetOrigin().X + (SpriteLeftBuffer * fScale);
+            Bounding_Position.Y += CalculateUnitOffsetOrigin().Y + (SpriteTopBuffer * fScale);
 
             return Bounding_Position;
         }
@@ -227,15 +216,20 @@ namespace EEngine.EEngine
         /// Finds lower corner of Unit. Unit may not actually end where the corner of the Sprite is due to sprite size being larger.
         /// </summary>
         /// <returns></returns>
-        public Vector2 CalculateUnitLowerBoundingPosition()
+        public Vector2 GetUnitLowerBoundingPosition()
         {
             Vector2 Bounding_Position = Vector2.Zero();
-            Bounding_Position.X += CalculateUnitOffsetPosition().X + vScale.X - (SpriteRightBuffer * fScale);
-            Bounding_Position.Y += CalculateUnitOffsetPosition().Y + vScale.Y - (SpriteBottomBuffer * fScale);
+            Bounding_Position.X += CalculateUnitOffsetOrigin().X + vScale.X - (SpriteRightBuffer * fScale);
+            Bounding_Position.Y += CalculateUnitOffsetOrigin().Y + vScale.Y - (SpriteBottomBuffer * fScale);
 
             return Bounding_Position;
         }
-        public Vector2 CalculateUnitOffsetPosition()
+        /// <summary>
+        /// Used to find the Origin X & Y of a Unit Sprite. This is due to the fact that the Sprites are not consistant with the other Sprites.
+        /// 
+        /// </summary>
+        /// <returns>Vector2</returns>
+        public Vector2 CalculateUnitOffsetOrigin()
         {
             Vector2 Offset_Position = Vector2.Zero();
             Offset_Position.X += Position.X - (SpriteLeftBuffer * fScale);
@@ -243,6 +237,19 @@ namespace EEngine.EEngine
 
             return Offset_Position;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public Vector2 GetUnitHealthEffect(Vector2 Position)
         {

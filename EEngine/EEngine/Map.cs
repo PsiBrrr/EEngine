@@ -23,7 +23,6 @@ namespace EEngine.EEngine
             if (Tile != null) { Log.Info($"[LEVEL]({Tile.Tag} Tile at Position {this.Position.X.ToString()}:{this.Position.Y.ToString()}) - Has been registered!"); }
             EEngine.RegisterMap(this);
         }
-
         public Map(Vector2 Scale, string[,] MapArray)
         {
             this.Scale = Scale;
@@ -66,7 +65,7 @@ namespace EEngine.EEngine
             EEngine.Loaded();
         }
 
-
+        //Returns a List Index
         public Vector2 GetMapTileArrayIndex(Vector2 WorldPosition)
         {
             if (WorldPosition.X < (StartPosition.X + EEngine.GetCameraPosition().X) 

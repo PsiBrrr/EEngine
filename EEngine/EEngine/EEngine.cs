@@ -24,6 +24,7 @@ namespace EEngine.EEngine
         private string Title = "New Game";
         private Canvas Window = null;
         private Thread GameLoopThread = null;
+        private System.Timers.Timer AnimationTimer = null;
         //private Task GameLoopTask = null;
 
         private static Map map; //temporary until list of levels implemented
@@ -74,6 +75,10 @@ namespace EEngine.EEngine
             };
             GameLoopThread.Start();
 
+            AnimationTimer = new System.Timers.Timer(200);
+            AnimationTimer.Elapsed += OnTimedEvent;
+            AnimationTimer.AutoReset = true;
+
             Application.Run(Window);
         }
 
@@ -82,6 +87,9 @@ namespace EEngine.EEngine
         private void Window_FormClosed(object sender, FormClosedEventArgs e)
         {
             GameLoopThread.Abort();
+
+            AnimationTimer.Stop();
+            AnimationTimer.Dispose();
         }
         private void Window_KeyUp(object sender, KeyEventArgs e)
         {
@@ -145,6 +153,7 @@ namespace EEngine.EEngine
             int Index = Armies.FindIndex(x => x.Unit.ID == Unit.ID);
             Armies[Index].Unit.Available = Active;
             Armies[Index].Unit.UnavailableIdle();
+            Armies[Index].Unit.Health_Effect.Unavailable();
         }
 
 
@@ -167,8 +176,8 @@ namespace EEngine.EEngine
         {
             foreach (Armies ArmyUnit in Armies.ToList())
             {
-                if (Position.X.IsBetween(ArmyUnit.Unit.CalculateUnitUpperBoundingPosition().X, ArmyUnit.Unit.CalculateUnitLowerBoundingPosition().X)
-                    && Position.Y.IsBetween(ArmyUnit.Unit.CalculateUnitUpperBoundingPosition().Y, ArmyUnit.Unit.CalculateUnitLowerBoundingPosition().Y))
+                if (Position.X.IsBetween(ArmyUnit.Unit.GetUnitUpperBoundingPosition().X, ArmyUnit.Unit.GetUnitLowerBoundingPosition().X)
+                    && Position.Y.IsBetween(ArmyUnit.Unit.GetUnitUpperBoundingPosition().Y, ArmyUnit.Unit.GetUnitLowerBoundingPosition().Y))
                 { return ArmyUnit; }
             }
 
@@ -185,8 +194,8 @@ namespace EEngine.EEngine
 
             foreach (Armies ArmyUnit in Armies.ToList())
             {
-                if (Position.X.IsBetween(ArmyUnit.Unit.CalculateUnitUpperBoundingPosition().X, ArmyUnit.Unit.CalculateUnitLowerBoundingPosition().X)
-                    && Position.Y.IsBetween(ArmyUnit.Unit.CalculateUnitUpperBoundingPosition().Y, ArmyUnit.Unit.CalculateUnitLowerBoundingPosition().Y))
+                if (Position.X.IsBetween(ArmyUnit.Unit.GetUnitUpperBoundingPosition().X, ArmyUnit.Unit.GetUnitLowerBoundingPosition().X)
+                    && Position.Y.IsBetween(ArmyUnit.Unit.GetUnitUpperBoundingPosition().Y, ArmyUnit.Unit.GetUnitLowerBoundingPosition().Y))
                 { Army_Unit_Array_Tag = ArmyUnit.Unit.Tag; }
             }
 
@@ -368,65 +377,47 @@ namespace EEngine.EEngine
             Load = true;
         }
 
-        private void FrameTile(int Timer)
+        private void FrameTile()
         {
-            if (Timer == TimerLimits)
+            foreach (List<Map> levelY in Map.ToList())
             {
-                foreach (List<Map> levelY in Map.ToList())
+                foreach (Map levelX in levelY)
                 {
-                    foreach (Map levelX in levelY)
-                    {
-                        if (levelX.Tile.Sprite[levelX.Tile.AnimationSet].Sprite.Count > 1) { levelX.Tile.Frame++; }
-                        if (levelX.Tile.Frame == levelX.Tile.Sprite[levelX.Tile.AnimationSet].Sprite.Count) { levelX.Tile.Frame = 0; }
-                    }
+                    if (levelX.Tile.Sprite[levelX.Tile.AnimationSet].Sprite.Count > 1) { levelX.Tile.Frame++; }
+                    if (levelX.Tile.Frame == levelX.Tile.Sprite[levelX.Tile.AnimationSet].Sprite.Count) { levelX.Tile.Frame = 0; }
                 }
             }
         }
-        private void FrameBuilding(int Timer)
+        private void FrameBuilding()
         {
-            if (Timer == TimerLimits)
+            foreach (Buildings building in ABuilding)
             {
-                foreach (Buildings building in ABuilding)
-                {
-                    if (building.Building_Sprite[building.AnimationSet].Sprite.Count > 1) { building.Frame++; }
-                    if (building.Frame == building.Building_Sprite[building.AnimationSet].Sprite.Count) { building.Frame = 0; }
+                if (building.Building_Sprite[building.AnimationSet].Sprite.Count > 1) { building.Frame++; }
+                if (building.Frame == building.Building_Sprite[building.AnimationSet].Sprite.Count) { building.Frame = 0; }
 
-                }
             }
         }
-        private void FrameUnit(int Timer)
+        private void FrameUnit()
         {
-            if (Timer == TimerLimits)
+            Unit_Frame++;
+            foreach (Armies army in Armies)
             {
-                Unit_Frame++;
-                foreach (Armies army in Armies)
+                if (Unit_Frame == army.Unit.Unit_Sprite[army.Unit.AnimationSet].Sprite.Count)
                 {
-                    if (Unit_Frame == army.Unit.Unit_Sprite[army.Unit.AnimationSet].Sprite.Count)
-                    {
-                        Unit_Frame = 0;
-                    }
-
-                    army.Unit.Frame = Unit_Frame;
+                    Unit_Frame = 0;
                 }
+
+                army.Unit.Frame = Unit_Frame;
             }
         }
-        //private void FrameUnit(int Timer)
-        //{
-        //    if (Timer == TimerLimits)
-        //    {
-        //        foreach (Armies army in Armies)
-        //        {
-        //            if (army.Unit.Unit_Sprite[army.Unit.AnimationSet].Sprite.Count > 1) { army.Unit.Frame++; }
-        //            if (army.Unit.Frame == army.Unit.Unit_Sprite[army.Unit.AnimationSet].Sprite.Count) { army.Unit.Frame = 0; }
-        //        }
-        //    }
-        //}
+
 
 
         void GameLoop()
         {
             OnLoad();
-            while(/*GameLoopTask.Status.Equals(TaskStatus.Running)*/GameLoopThread.IsAlive)
+            AnimationTimer.Start();
+            while (/*GameLoopTask.Status.Equals(TaskStatus.Running)*/GameLoopThread.IsAlive)
             {
                 try
                 {
@@ -459,7 +450,6 @@ namespace EEngine.EEngine
 
             if (Load)
             {
-                FrameTile(Timers);
                 foreach (List<Map> levelY in Map.ToList())
                 {
                     foreach (Map levelX in levelY.ToList())
@@ -472,8 +462,6 @@ namespace EEngine.EEngine
                     }
                 }
 
-
-                FrameBuilding(Timers);
                 foreach (Buildings building in ABuilding.ToList())
                 {
                     g.DrawImage(building.Building_Sprite[building.AnimationSet].Sprite[building.Frame].Sprite,
@@ -483,25 +471,23 @@ namespace EEngine.EEngine
                     building.vScale.Y);
                 }
 
-
-                FrameUnit(Timers);
                 foreach (Armies army in Armies.ToList())
                 {
                     //Unit
                     g.DrawImage(army.Unit.Unit_Sprite[army.Unit.AnimationSet].Sprite[army.Unit.Frame].Sprite,
-                        army.Unit.CalculateUnitOffsetPosition().X,
-                        army.Unit.CalculateUnitOffsetPosition().Y,
+                        army.Unit.CalculateUnitOffsetOrigin().X,
+                        army.Unit.CalculateUnitOffsetOrigin().Y,
                         army.Unit.vScale.X,
                         army.Unit.vScale.Y);
                     //Unit Effect (Health, Ammo, Fuel)
                     g.DrawImage(army.Unit.Health_Effect.Effect_Sprite[army.Unit.Health_Effect.AnimationSet].Sprite[army.Unit.GetUnitHeath()].Sprite,
-                        army.Unit.GetUnitHealthEffect(army.Unit.CalculateUnitOffsetPosition()).X,
-                        army.Unit.GetUnitHealthEffect(army.Unit.CalculateUnitOffsetPosition()).Y,
+                        army.Unit.GetUnitHealthEffect(army.Unit.CalculateUnitOffsetOrigin()).X,
+                        army.Unit.GetUnitHealthEffect(army.Unit.CalculateUnitOffsetOrigin()).Y,
                         army.Unit.Health_Effect.Scale.X,
                         army.Unit.Health_Effect.Scale.Y);
                     g.DrawImage(army.Unit.Supply_Effect.Effect_Sprite[army.Unit.Supply_Effect.AnimationSet].Sprite[army.Unit.GetUnitSupply()].Sprite,
-                        army.Unit.GetUnitSupplyEffect(army.Unit.CalculateUnitOffsetPosition()).X,
-                        army.Unit.GetUnitSupplyEffect(army.Unit.CalculateUnitOffsetPosition()).Y,
+                        army.Unit.GetUnitSupplyEffect(army.Unit.CalculateUnitOffsetOrigin()).X,
+                        army.Unit.GetUnitSupplyEffect(army.Unit.CalculateUnitOffsetOrigin()).Y,
                         army.Unit.Supply_Effect.Scale.X,
                         army.Unit.Supply_Effect.Scale.Y);
                 }
@@ -513,6 +499,13 @@ namespace EEngine.EEngine
 
             Timers++;
             if (Timers > TimerLimits) { Timers = 0; }
+        }
+        private void OnTimedEvent(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            FrameTile();
+            FrameUnit();
+            FrameBuilding();
+            Log.Success(e.SignalTime.ToString());
         }
 
 
